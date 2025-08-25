@@ -28,12 +28,14 @@
       --shadow-strong: 0 16px 48px rgba(0, 0, 0, 0.6);
     }
 
-    * { box-sizing: border-box; }
+    * { 
+      box-sizing: border-box; 
+      margin: 0;
+      padding: 0;
+    }
     
     html, body { 
       height: 100%; 
-      margin: 0;
-      padding: 0;
     }
     
     body {
@@ -43,10 +45,6 @@
       font-family: "Monotype Corsiva", cursive;
       overflow-x: hidden;
       min-height: 100vh;
-    }
-
-    h1{
-      font-family: "Monotype Corsiva", cursive;
     }
 
     .container {
@@ -60,24 +58,29 @@
 
     .title {
       font-family: "Monotype Corsiva", cursive;
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
       font-weight: 600;
       color: var(--accent);
       text-align: center;
-      margin: 2rem 0;
+      margin: 0 0 2rem 0;
       text-shadow: 0 4px 20px rgba(232, 168, 124, 0.3);
       letter-spacing: 0.05em;
+      flex-shrink: 0;
     }
 
     .poem-container {
-      width: min(750px, 92vw);
+      flex: 1;
+      width: min(850px, 95vw);
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 20px;
-      padding: clamp(1.5rem, 4vw, 3rem);
+      padding: clamp(1.5rem, 3vw, 2.5rem);
       box-shadow: var(--shadow-strong);
       backdrop-filter: blur(10px);
       position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
       margin-bottom: 2rem;
     }
 
@@ -106,21 +109,24 @@
     }
 
     .poem {
-      font-family: "Times New Roman", cursive;
-      font-size: clamp(0.8rem, 2vw, 1.3rem);
+      font-family: "Times New Roman", serif;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
       font-weight: 400;
-      line-height: 1.4;
+      line-height: 1.5;
       color: var(--text-primary);
       white-space: pre-wrap;
       word-wrap: break-word;
       overflow-wrap: anywhere;
       position: relative;
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 5px;
       min-height: 2em;
     }
 
     .cursor {
       display: inline-block;
-      width: 5px;
+      width: 3px;
       height: 1em;
       background: linear-gradient(180deg, var(--cursor) 0%, rgba(240, 176, 144, 0.3) 100%);
       border-radius: 1px;
@@ -137,21 +143,22 @@
 
     .controls {
       display: flex;
-      gap: 1rem;
+      gap: 0.5rem;
       justify-content: center;
       flex-wrap: wrap;
       margin-top: 1rem;
+      flex-shrink: 0;
     }
 
     .btn {
       background: var(--button-bg);
       border: 1px solid var(--card-border);
       color: var(--text-primary);
-      padding: 0.8rem 1.5rem;
-      border-radius: 25px;
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
       cursor: pointer;
       font-family: "Caveat", cursive;
-      font-size: 1rem;
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
       font-weight: 500;
       letter-spacing: 0.03em;
       transition: all 0.3s ease;
@@ -160,11 +167,14 @@
       overflow: hidden;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.3rem;
+      min-width: 80px;
     }
 
     .btn svg {
       transition: transform 0.2s ease;
+      width: 14px;
+      height: 14px;
     }
 
     .btn:hover svg {
@@ -230,41 +240,121 @@
       }
     }
 
-    /* Responsive */
+    /* Responsive optimisé pour mobile */
     @media (max-width: 768px) {
+      .container {
+        padding: 1rem 0.5rem;
+      }
+      
       .poem-container {
-        padding: 1.5rem 1rem;
-        width: 95vw;
+        width: min(750px, 96vw);
+        border-radius: 15px;
+        margin-bottom: 1.5rem;
+        padding: clamp(1rem, 3vw, 1.8rem);
       }
       
       .poem {
-        font-size: 0.8rem;
-        line-height: 1.3;
+        font-size: clamp(1.0rem, 3vw, 1.3rem);
+        line-height: 1.4;
       }
       
       .controls {
-        gap: 0.6rem;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
       }
       
       .btn {
         padding: 0.6rem 1rem;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        min-width: 70px;
+      }
+      
+      .title {
+        margin: 0 0 1.5rem 0;
       }
     }
 
     @media (max-width: 480px) {
+      .container {
+        padding: 0.8rem 0.15rem;
+      }
+      
       .poem-container {
-        padding: 1rem 0.8rem;
-        width: 98vw;
+        width: min(700px, 98.5vw);
+        padding: 1rem 0.5rem;
+        border-radius: 12px;
       }
       
       .poem {
-        font-size: 0.78rem;
-        line-height: 1.25;
+        font-size: clamp(0.8rem, 3vw, 1.2rem);
+        line-height: 1.3;
       }
       
       .title {
-        font-size: 2rem;
+        font-size: clamp(2rem, 6vw, 2.8rem);
+        margin: 0 0 1rem 0;
+      }
+      
+      .btn {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.8rem;
+        min-width: 60px;
+        gap: 0.2rem;
+      }
+      
+      .controls {
+        margin-top: 0.5rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .poem-container {
+        width: min(320px, 98.5vw);
+        padding: 0.8rem 0.4rem;
+      }
+      
+      .poem {
+        font-size: clamp(0.7rem, 3vw, 1.1rem);
+        line-height: 1.2;
+      }
+      
+      .title {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+        margin: 0 0 0.8rem 0;
+      }
+      
+      .btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.75rem;
+        min-width: 55px;
+      }
+    }
+
+    /* Mode paysage mobile */
+    @media (max-width: 896px) and (orientation: landscape) {
+      .container {
+        padding: 0.8rem 0.5rem;
+      }
+      
+      .poem-container {
+        width: min(800px, 94vw);
+      }
+      
+      .controls {
+        margin-top: 1rem;
+      }
+    }
+
+    /* Très petits écrans */
+    @media (max-width: 320px) {
+      .poem {
+        font-size: 0.8rem;
+      }
+      
+      .btn {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.7rem;
+        min-width: 50px;
       }
     }
 
@@ -281,13 +371,13 @@
 
     .particle {
       position: absolute;
-      width: 3px;
-      height: 3px;
+      width: 2px;
+      height: 2px;
       background: var(--accent);
       border-radius: 50%;
-      opacity: 0.6;
-      animation: float 8s linear infinite;
-      box-shadow: 0 0 4px var(--accent);
+      opacity: 0.4;
+      animation: float 12s linear infinite;
+      box-shadow: 0 0 3px var(--accent);
     }
 
     @keyframes float {
@@ -296,10 +386,10 @@
         opacity: 0;
       }
       10% {
-        opacity: 0.3;
+        opacity: 0.2;
       }
       90% {
-        opacity: 0.3;
+        opacity: 0.2;
       }
       100% {
         transform: translateY(-100px) rotate(360deg);
@@ -314,38 +404,40 @@
   <div class="container">
     <h1 class="title">Pépite</h1>
     
-    <div class="poem-container">
-      <div id="poem" class="poem" aria-live="polite"></div>
-    </div>
-    
-    <div class="controls">
-      <button id="btnPlay" class="btn" aria-label="Rejouer l'animation">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-          <path d="M3 3v5h5"/>
-        </svg>
-        Rejouer
-      </button>
-      <button id="btnPause" class="btn" aria-label="Mettre en pause">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <rect x="6" y="4" width="4" height="16"/>
-          <rect x="14" y="4" width="4" height="16"/>
-        </svg>
-        Pause
-      </button>
-      <button id="btnResume" class="btn" aria-label="Reprendre" style="display: none;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <polygon points="5,3 19,12 5,21"/>
-        </svg>
-        Reprendre
-      </button>
-      <button id="btnSkip" class="btn" aria-label="Afficher tout">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polygon points="5,4 15,12 5,20"/>
-          <line x1="19" y1="5" x2="19" y2="19"/>
-        </svg>
-        Afficher tout
-      </button>
+    <div class="main-content">
+      <div class="poem-container">
+        <div id="poem" class="poem" aria-live="polite"></div>
+      </div>
+      
+      <div class="controls">
+        <button id="btnPlay" class="btn" aria-label="Rejouer l'animation">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+            <path d="M3 3v5h5"/>
+          </svg>
+          Rejouer
+        </button>
+        <button id="btnPause" class="btn" aria-label="Mettre en pause">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <rect x="6" y="4" width="4" height="16"/>
+            <rect x="14" y="4" width="4" height="16"/>
+          </svg>
+          Pause
+        </button>
+        <button id="btnResume" class="btn" aria-label="Reprendre" style="display: none;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5,3 19,12 5,21"/>
+          </svg>
+          Reprendre
+        </button>
+        <button id="btnSkip" class="btn" aria-label="Afficher tout">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5,4 15,12 5,20"/>
+            <line x1="19" y1="5" x2="19" y2="19"/>
+          </svg>
+          Afficher tout
+        </button>
+      </div>
     </div>
   </div>
 
@@ -413,12 +505,11 @@ Je t'aime. Adieu.`;
     cursor.className = 'cursor';
 
     function getDelayFor(char, prevChar) {
-      const baseDelay = 50; // Rythme de lecture naturel
+      const baseDelay = 50;
       
       if (char === '\n') {
-        // Pause plus longue pour les doubles retours (entre strophes)
         if (prevChar === '\n') return 1200;
-        return 400; // Fin de vers
+        return 400;
       }
       if (char === ' ') return baseDelay * 0.7;
       if (',;:'.includes(char)) return 200;
@@ -439,7 +530,6 @@ Je t'aime. Adieu.`;
       const char = text[idx];
       const prevChar = idx > 0 ? text[idx - 1] : '';
       
-      // Ajouter le caractère avec animation
       const span = document.createElement('span');
       span.textContent = char;
       span.className = 'writing-line';
@@ -447,8 +537,7 @@ Je t'aime. Adieu.`;
       el.appendChild(span);
       ensureCursorAtEnd();
 
-      // Auto-scroll pour suivre l'écriture
-      if (char === '\n' || idx % 50 === 0) { // Scroll tous les 50 caractères ou à chaque ligne
+      if (char === '\n' || idx % 50 === 0) {
         setTimeout(() => {
           cursor.scrollIntoView({ 
             behavior: 'smooth', 
@@ -473,7 +562,7 @@ Je t'aime. Adieu.`;
       if (idx >= text.length) reset();
       playing = true;
       btnPlay.style.display = 'none';
-      btnPause.style.display = 'inline-block';
+      btnPause.style.display = 'inline-flex';
       btnResume.style.display = 'none';
       typeCharacter();
     }
@@ -482,13 +571,13 @@ Je t'aime. Adieu.`;
       playing = false;
       clearTimeout(timeoutId);
       btnPause.style.display = 'none';
-      btnResume.style.display = 'inline-block';
+      btnResume.style.display = 'inline-flex';
     }
 
     function resume() {
       playing = true;
       btnResume.style.display = 'none';
-      btnPause.style.display = 'inline-block';
+      btnPause.style.display = 'inline-flex';
       typeCharacter();
     }
 
@@ -497,7 +586,6 @@ Je t'aime. Adieu.`;
       clearTimeout(timeoutId);
       el.innerHTML = '';
       
-      // Ajouter tout le texte d'un coup avec animation rapide
       const lines = text.split('\n');
       lines.forEach((line, lineIdx) => {
         const lineElement = document.createElement('div');
@@ -514,7 +602,7 @@ Je t'aime. Adieu.`;
       ensureCursorAtEnd();
       idx = text.length;
       
-      btnPlay.style.display = 'inline-block';
+      btnPlay.style.display = 'inline-flex';
       btnPause.style.display = 'none';
       btnResume.style.display = 'none';
     }
@@ -525,36 +613,32 @@ Je t'aime. Adieu.`;
       idx = 0;
       el.innerHTML = '';
       
-      btnPlay.style.display = 'inline-block';
+      btnPlay.style.display = 'inline-flex';
       btnPause.style.display = 'none';
       btnResume.style.display = 'none';
     }
 
-    // Event listeners
     btnPlay.addEventListener('click', play);
     btnPause.addEventListener('click', pause);
     btnResume.addEventListener('click', resume);
     btnSkip.addEventListener('click', skipAll);
 
-    // Créer des particules en arrière-plan
     function createParticles() {
       const particlesContainer = document.getElementById('particles');
       
-      for (let i = 0; i < 25; i++) {
+      for (let i = 0; i < 15; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
         particle.style.left = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 8 + 's';
-        particle.style.animationDuration = (6 + Math.random() * 6) + 's';
+        particle.style.animationDelay = Math.random() * 12 + 's';
+        particle.style.animationDuration = (8 + Math.random() * 8) + 's';
         particlesContainer.appendChild(particle);
       }
     }
 
-    // Initialisation
     createParticles();
     ensureCursorAtEnd();
     
-    // Démarrer automatiquement après un court délai
     setTimeout(play, 1000);
   </script>
 </body>
