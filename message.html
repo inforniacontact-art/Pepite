@@ -1,49 +1,561 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Poem for My Love</title>
-  <link href="https://fonts.googleapis.com/css?family=Dancing+Script:700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0a0506" />
+  <title>Pépite</title>
+
+  <!-- Police manuscrite élégante -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      background: #ffe9ec;
-      min-height: 100vh;
+    :root {
+      --bg-primary: #0a0506;
+      --bg-secondary: #1a1012;
+      --bg-accent: #2a1b1f;
+      --text-primary: #f8f1f4;
+      --text-secondary: #d4c2ca;
+      --text-muted: #a08890;
+      --accent: #e8a87c;
+      --accent-soft: #d49776;
+      --cursor: #f0b090;
+      --card-bg: rgba(26, 16, 18, 0.85);
+      --card-border: rgba(232, 168, 124, 0.15);
+      --button-bg: rgba(232, 168, 124, 0.1);
+      --button-hover: rgba(232, 168, 124, 0.2);
+      --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.4);
+      --shadow-strong: 0 16px 48px rgba(0, 0, 0, 0.6);
+    }
+
+    * { box-sizing: border-box; }
+    
+    html, body { 
+      height: 100%; 
       margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-accent) 100%);
+      background-attachment: fixed;
+      color: var(--text-primary);
+      font-family: "Dancing Script", cursive;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    h1{
+      font-family: "Dancing Script", cursive;
+    }
+
+    .container {
+      min-height: 100vh;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      padding: 2rem 1rem;
+      position: relative;
     }
-    .poem-container {
-      background: #fff8f8;
-      border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(200, 50, 120, 0.18);
-      padding: 40px 32px;
-      max-width: 550px;
-      font-family: 'Dancing Script', cursive;
-      color: #b23a48;
-      font-size: 2.1em;
+
+    .title {
+      font-family: "Caveat", cursive;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 600;
+      color: var(--accent);
       text-align: center;
-      letter-spacing: 1px;
+      margin: 2rem 0;
+      text-shadow: 0 4px 20px rgba(232, 168, 124, 0.3);
+      letter-spacing: 0.05em;
     }
-    .signature {
-      margin-top: 35px;
-      font-size: 1.2em;
-      color: #8d2044;
-      font-family: 'Dancing Script', cursive;
+
+    .poem-container {
+      width: min(750px, 92vw);
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      box-shadow: var(--shadow-strong);
+      backdrop-filter: blur(10px);
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .poem-container::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, 
+        rgba(232, 168, 124, 0.2),
+        rgba(232, 168, 124, 0.05),
+        rgba(232, 168, 124, 0.15),
+        rgba(232, 168, 124, 0.3),
+        rgba(232, 168, 124, 0.1));
+      border-radius: 22px;
+      z-index: -1;
+      filter: blur(8px);
+      animation: glow 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { opacity: 0.3; }
+      100% { opacity: 0.7; }
+    }
+
+    .poem {
+      font-family: "Dancing Script", cursive;
+      font-size: clamp(1.7rem, 2vw, 1.3rem);
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--text-primary);
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow-wrap: anywhere;
+      position: relative;
+      min-height: 2em;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: linear-gradient(180deg, var(--cursor) 0%, rgba(240, 176, 144, 0.3) 100%);
+      border-radius: 1px;
+      margin-left: 1px;
+      animation: pulse 1.2s ease-in-out infinite;
+      box-shadow: 0 0 10px var(--cursor);
+      transform: translateY(0.1em);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: translateY(0.1em) scaleY(1); }
+      50% { opacity: 0.3; transform: translateY(0.1em) scaleY(0.8); }
+    }
+
+    .controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      background: var(--button-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-primary);
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-family: "Caveat", cursive;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn svg {
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover svg {
+      transform: scale(1.1);
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(232, 168, 124, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn:hover {
+      background: var(--button-hover);
+      border-color: var(--accent-soft);
+      color: var(--accent);
+      box-shadow: 0 4px 15px rgba(232, 168, 124, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn:disabled:hover {
+      background: var(--button-bg);
+      border-color: var(--card-border);
+      color: var(--text-primary);
+      box-shadow: none;
+      transform: none;
+    }
+
+    /* Animation d'écriture manuscrite */
+    .writing-line {
+      display: inline;
+      opacity: 0;
+      animation: fadeInWrite 0.1s ease-in forwards;
+    }
+
+    @keyframes fadeInWrite {
+      from { 
+        opacity: 0; 
+        transform: translateY(5px);
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .poem-container {
+        padding: 1.5rem 1rem;
+        width: 95vw;
+      }
+      
+      .poem {
+        font-size: 0.95rem;
+        line-height: 1.3;
+      }
+      
+      .controls {
+        gap: 0.6rem;
+      }
+      
+      .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .poem-container {
+        padding: 1rem 0.8rem;
+        width: 98vw;
+      }
+      
+      .poem {
+        font-size: 0.85rem;
+        line-height: 1.25;
+      }
+      
+      .title {
+        font-size: 2rem;
+      }
+    }
+
+    /* Effet de particules subtil en arrière-plan */
+    .bg-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: float 8s linear infinite;
+      box-shadow: 0 0 4px var(--accent);
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.3;
+      }
+      90% {
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="poem-container">
-    My dearest love, you light my soul,<br>
-    With every smile, you make me whole.<br>
-    The stars above shine just for you,<br>
-    My heart is yours, forever true.<br><br>
-    In every word, in every rhyme,<br>
-    I love you more with passing time.<br>
-    You are my dream, my endless song,<br>
-    With you, my love, I do belong.<br>
-    <div class="signature">— Yours forever, Lucie</div>
+  <div class="bg-particles" id="particles"></div>
+  
+  <div class="container">
+    <h1 class="title">Pépite</h1>
+    
+    <div class="poem-container">
+      <div id="poem" class="poem" aria-live="polite"></div>
+    </div>
+    
+    <div class="controls">
+      <button id="btnPlay" class="btn" aria-label="Rejouer l'animation">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+          <path d="M3 3v5h5"/>
+        </svg>
+        Rejouer
+      </button>
+      <button id="btnPause" class="btn" aria-label="Mettre en pause">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <rect x="6" y="4" width="4" height="16"/>
+          <rect x="14" y="4" width="4" height="16"/>
+        </svg>
+        Pause
+      </button>
+      <button id="btnResume" class="btn" aria-label="Reprendre" style="display: none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="5,3 19,12 5,21"/>
+        </svg>
+        Reprendre
+      </button>
+      <button id="btnSkip" class="btn" aria-label="Afficher tout">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="5,4 15,12 5,20"/>
+          <line x1="19" y1="5" x2="19" y2="19"/>
+        </svg>
+        Afficher tout
+      </button>
+    </div>
   </div>
+
+  <script>
+    const text = `Je ne suis pas intéressé, mais intéressé par celle qui s'intéresse.
+Au lieu de m'attirer physiquement, tu m'as touché intellectuellement.
+J'ai vite perdu en clarté, mon cerveau s'est enlisé,
+Les émotions m'ont frappé, mon cœur fut kidnappé.
+
+La personne que j'étais se retrouve en captivité,
+Incapable de proposer, trop stimulé pour discuter.
+J'en perds mon authenticité, je suis le pantin de ma chimie,
+Je deviens vite un larbin, piloté par mes circuits.
+
+J'entends tes attentes, j'écoute ce que tu dis, 
+Mais rude est la pente de ce que tu m'as instruit.
+J'échoue et trébuche, tel un apprenti,
+Et comme un jeune pruche, je pousse et grandis.
+
+Une sortie cinéma, voir un film miteux,
+Une promenade nocturne, croiser les nuiteux.
+Un arrêt près d'un bar, goûter un spiritueux,
+Une invite au resto, dans un mood amoureux.
+
+Te ramener ? Je préfère attendre, pas trop me presser.
+T'embrasser ? Pourquoi pas, mais tu es alcoolisée.
+T'inviter ? Perturbant, c'est mon intimité.
+Coucher ? Tentant, mais je ne veux profiter.
+
+D'une balade arrosée, nous nous sommes rapprochés,
+D'une belle soirée, nous nous sommes embrassés.
+D'invitations improvisées, nous nous sommes câlinés,
+D'une nuit agitée, nous nous sommes désirés.
+
+Main dans les cheveux, je t'ai caressée,
+Puis t'ai embrassée, t'ai vu sourire et briller.
+D'un désir intense, tes yeux à demi fermés,
+Dans le feu du désir, je t'ai vue t'abandonner.
+
+De ces soirées inopinées,
+Je n'oublierai l'amour porté. 
+De ces moments éphémères,
+Conserverai ta lumière
+
+Je t'aime sans m'attacher,  
+Je souffre sans te blâmer.
+Jaloux sans te posséder,  
+Frustré sans regretter.  
+
+Pour toi toujours mon cœur battra,  
+Même si je sais qu'on ne se reverra.  
+
+Je t'aime. Adieu.`;
+
+    const el = document.getElementById('poem');
+    const btnPlay = document.getElementById('btnPlay');
+    const btnPause = document.getElementById('btnPause');
+    const btnResume = document.getElementById('btnResume');
+    const btnSkip = document.getElementById('btnSkip');
+
+    let idx = 0;
+    let playing = false;
+    let timeoutId = null;
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor';
+
+    function getDelayFor(char, prevChar) {
+      const baseDelay = 50; // Rythme de lecture naturel
+      
+      if (char === '\n') {
+        // Pause plus longue pour les doubles retours (entre strophes)
+        if (prevChar === '\n') return 1200;
+        return 400; // Fin de vers
+      }
+      if (char === ' ') return baseDelay * 0.7;
+      if (',;:'.includes(char)) return 200;
+      if ('.!?…'.includes(char)) return 600;
+      if (char === '—') return 300;
+      
+      return baseDelay;
+    }
+
+    function typeCharacter() {
+      if (!playing || idx >= text.length) {
+        if (idx >= text.length) {
+          ensureCursorAtEnd();
+        }
+        return;
+      }
+
+      const char = text[idx];
+      const prevChar = idx > 0 ? text[idx - 1] : '';
+      
+      // Ajouter le caractère avec animation
+      const span = document.createElement('span');
+      span.textContent = char;
+      span.className = 'writing-line';
+      
+      el.appendChild(span);
+      ensureCursorAtEnd();
+
+      // Auto-scroll pour suivre l'écriture
+      if (char === '\n' || idx % 50 === 0) { // Scroll tous les 50 caractères ou à chaque ligne
+        setTimeout(() => {
+          cursor.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center',
+            inline: 'nearest'
+          });
+        }, 100);
+      }
+
+      idx++;
+      
+      const delay = getDelayFor(char, prevChar);
+      timeoutId = setTimeout(typeCharacter, delay);
+    }
+
+    function ensureCursorAtEnd() {
+      if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
+      el.appendChild(cursor);
+    }
+
+    function play() {
+      if (idx >= text.length) reset();
+      playing = true;
+      btnPlay.style.display = 'none';
+      btnPause.style.display = 'inline-block';
+      btnResume.style.display = 'none';
+      typeCharacter();
+    }
+
+    function pause() {
+      playing = false;
+      clearTimeout(timeoutId);
+      btnPause.style.display = 'none';
+      btnResume.style.display = 'inline-block';
+    }
+
+    function resume() {
+      playing = true;
+      btnResume.style.display = 'none';
+      btnPause.style.display = 'inline-block';
+      typeCharacter();
+    }
+
+    function skipAll() {
+      playing = false;
+      clearTimeout(timeoutId);
+      el.innerHTML = '';
+      
+      // Ajouter tout le texte d'un coup avec animation rapide
+      const lines = text.split('\n');
+      lines.forEach((line, lineIdx) => {
+        const lineElement = document.createElement('div');
+        lineElement.textContent = line;
+        lineElement.style.animationDelay = `${lineIdx * 0.1}s`;
+        lineElement.className = 'writing-line';
+        el.appendChild(lineElement);
+        
+        if (lineIdx < lines.length - 1) {
+          el.appendChild(document.createElement('br'));
+        }
+      });
+      
+      ensureCursorAtEnd();
+      idx = text.length;
+      
+      btnPlay.style.display = 'inline-block';
+      btnPause.style.display = 'none';
+      btnResume.style.display = 'none';
+    }
+
+    function reset() {
+      playing = false;
+      clearTimeout(timeoutId);
+      idx = 0;
+      el.innerHTML = '';
+      
+      btnPlay.style.display = 'inline-block';
+      btnPause.style.display = 'none';
+      btnResume.style.display = 'none';
+    }
+
+    // Event listeners
+    btnPlay.addEventListener('click', play);
+    btnPause.addEventListener('click', pause);
+    btnResume.addEventListener('click', resume);
+    btnSkip.addEventListener('click', skipAll);
+
+    // Créer des particules en arrière-plan
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      
+      for (let i = 0; i < 25; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 8 + 's';
+        particle.style.animationDuration = (6 + Math.random() * 6) + 's';
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Initialisation
+    createParticles();
+    ensureCursorAtEnd();
+    
+    // Démarrer automatiquement après un court délai
+    setTimeout(play, 1000);
+  </script>
 </body>
 </html>
