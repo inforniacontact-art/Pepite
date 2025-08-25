@@ -245,7 +245,7 @@
         }
       }
       .audio-controls {
-        position: fixed;
+        position: initial;
         bottom: 1rem;
         right: 1rem;
         z-index: 10;
@@ -253,6 +253,7 @@
         flex-direction: column;
         gap: 0.8rem;
         align-items: flex-end;
+        margin-top: 5rem;
       }
       .soundcloud-widget {
         background: var(--card-bg);
@@ -590,87 +591,98 @@
           </button>
         </div>
       </div>
-    </div>
-    <div class="audio-controls">
-      <div class="soundcloud-widget">
-        <div class="soundcloud-header">
-          <svg class="soundcloud-icon" viewBox="0 0 24 24">
-            <path
-              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.19 0 2.34-.21 3.41-.6.3-.11.49-.4.49-.72 0-.43-.35-.78-.78-.78-.18 0-.35.06-.49.16-.82.29-1.69.44-2.63.44-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6c0 .55-.45 1-1 1H15c-1.65 0-3 1.35-3 3s1.35 3 3 3h1c.55 0 1 .45 1 1s-.45 1-1 1h-1c-2.76 0-5-2.24-5-5s2.24-5 5-5h1c1.65 0 3 1.35 3 3 0 4.42-3.58 8-8 8z"
-            />
-          </svg>
-          <div>
-            <h3 class="soundcloud-title">Travel Island</h3>
-            <a
-              href="https://soundcloud.com/mickawolf/travel-island?si=dfb0062b3abb4442b4356963ba82c7af&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="soundcloud-link"
-              >Écouter sur SoundCloud</a
-            >
+      <div class="audio-controls">
+        <div class="soundcloud-widget">
+          <div class="soundcloud-header">
+            <svg class="soundcloud-icon" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.19 0 2.34-.21 3.41-.6.3-.11.49-.4.49-.72 0-.43-.35-.78-.78-.78-.18 0-.35.06-.49.16-.82.29-1.69.44-2.63.44-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6c0 .55-.45 1-1 1H15c-1.65 0-3 1.35-3 3s1.35 3 3 3h1c.55 0 1 .45 1 1s-.45 1-1 1h-1c-2.76 0-5-2.24-5-5s2.24-5 5-5h1c1.65 0 3 1.35 3 3 0 4.42-3.58 8-8 8z"
+              />
+            </svg>
+            <div>
+              <h3 class="soundcloud-title">Travel Island</h3>
+              <a
+                href="https://soundcloud.com/mickawolf/travel-island?si=dfb0062b3abb4442b4356963ba82c7af&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="soundcloud-link"
+                >Écouter sur SoundCloud</a
+              >
+            </div>
           </div>
         </div>
+        <div class="audio-player">
+          <button id="audioToggle" class="audio-toggle">🔇</button>
+          <span id="audioStatus" class="audio-status">Activer le son</span>
+          <input
+            id="volumeSlider"
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.7"
+            class="volume-slider"
+          />
+        </div>
       </div>
-      <div class="audio-player">
-        <button id="audioToggle" class="audio-toggle">🔇</button>
-        <span id="audioStatus" class="audio-status">Activer le son</span>
-        <input
-          id="volumeSlider"
-          type="range"
-          min="0"
-          max="1"
-          step="0.01"
-          value="0.7"
-          class="volume-slider"
+      <audio id="ambientAudio" loop preload="auto">
+        <source
+          src="https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/Travel%20Island%20v2.mp3"
+          type="audio/mpeg"
         />
-      </div>
+      </audio>
     </div>
-    <audio id="ambientAudio" loop preload="auto">
-      <source
-        src="https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/Travel%20Island%20v2.mp3"
-        type="audio/mpeg"
-      />
-    </audio>
     <script>
-      const text = `Je ne suis pas intéressé, mais intéressé par celle qui s'intéresse.
+    const text = `Je ne suis pas intéressé, mais intéressé par celle qui s'intéresse.
 Au lieu de m'attirer physiquement, tu m'as touché intellectuellement.
 J'ai vite perdu en clarté, mon cerveau s'est enlisé,
 Les émotions m'ont frappé, mon cœur fut kidnappé.
+
 La personne que j'étais se retrouve en captivité,
 Incapable de proposer, trop stimulé pour discuter.
 J'en perds mon authenticité, je suis le pantin de ma chimie,
 Je deviens vite un larbin, piloté par mes circuits.
+
 J'entends tes attentes, j'écoute ce que tu dis, 
 Mais rude est la pente de ce que tu m'as instruit.
 J'échoue et trébuche, tel un apprenti,
 Et comme un jeune pruche, je pousse et grandis.
+
 Une sortie cinéma, voir un film miteux,
 Une promenade nocturne, croiser les nuiteux.
 Un arrêt près d'un bar, goûter un spiritueux,
 Une invite au resto, dans un mood amoureux.
+
 Te ramener ? Je préfère attendre, pas trop me presser.
 T'embrasser ? Pourquoi pas, mais tu es alcoolisée.
 T'inviter ? Perturbant, c'est mon intimité.
 Coucher ? Tentant, mais je ne veux profiter.
+
 D'une balade arrosée, nous nous sommes rapprochés,
 D'une belle soirée, nous nous sommes embrassés.
 D'invitations improvisées, nous nous sommes câlinés,
 D'une nuit agitée, nous nous sommes désirés.
+
 Main dans les cheveux, je t'ai caressée,
 Puis t'ai embrassée, t'ai vu sourire et briller.
 D'un désir intense, tes yeux à demi fermés,
 Dans le feu du désir, je t'ai vue t'abandonner.
+
 De ces soirées inopinées,
 Je n'oublierai l'amour porté. 
 De ces moments éphémères,
 Conserverai ta lumière
+
 Je t'aime sans m'attacher,  
 Je souffre sans te blâmer.
 Jaloux sans te posséder,  
 Frustré sans regretter.  
+
 Pour toi toujours mon cœur battra,  
 Même si je sais qu'on ne se reverra.  
+
 Je t'aime. Adieu.`;
+
       const el = document.getElementById("poem");
       const btnPlay = document.getElementById("btnPlay");
       const btnPause = document.getElementById("btnPause");
