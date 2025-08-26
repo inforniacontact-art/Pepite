@@ -900,5 +900,31 @@ Pépite, sera une mère extraordinaire.
         startAudioAutomatically();
       });
     </script>
+    <script>
+async function incrementVisitor() {
+  const url = "visitors.json"; // chemin vers ton JSON
+  try {
+    // Récupère le compteur actuel
+    const response = await fetch(url);
+    const data = await response.json();
+    
+    // Incrémente localement
+    data.count += 1;
+    
+    // Affiche dans la console
+    console.log("Visiteur n°", data.count);
+    
+    // ⚠️ Attention : GitHub Pages ne permet pas d'écrire dans le fichier JSON depuis le client
+    // Donc pour enregistrer le nouveau compteur, il faudrait un petit script côté serveur
+    // Pour GitHub Pages, tu peux juste afficher le compteur actuel
+  } catch (err) {
+    console.error("Impossible de récupérer le compteur :", err);
+  }
+}
+
+// Lance le tracker au chargement
+incrementVisitor();
+</script>
+
   </body>
 </html>
