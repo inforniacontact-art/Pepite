@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0a0506" />
-    <title>Souvenir d'une vie</title>
+    <title>Pépite</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -544,12 +544,54 @@
           opacity: 0;
         }
       }
+      .navbar {
+  width: 100%;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--card-border);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(10px);
+  position: sticky; /* reste visible en haut quand on scroll */
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+  padding: 0.8rem 1rem;
+  margin: 0;
+}
+
+.navbar .nav-link {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-family: "Caveat", cursive;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  background: var(--button-hover);
+  color: var(--accent);
+  box-shadow: 0 4px 10px rgba(232, 168, 124, 0.2);
+}
+
     </style>
   </head>
+  <nav class="navbar">
+  <ul>
+    <li><a href="message.html" class="nav-link">Souvenir</a></li>
+    <li><a href="pepite.html" class="nav-link">Pépite</a></li>
+  </ul>
+</nav>
   <body>
     <div class="bg-particles" id="particles"></div>
     <div class="container">
-      <h1 class="title">Souvenir d'une vie</h1>
+      <h1 class="title">Pépite</h1>
       <div class="main-content">
         <div class="poem-container">
           <div id="poem" class="poem" aria-live="polite"></div>
@@ -633,55 +675,27 @@
       </audio>
     </div>
     <script>
-    const text = `Je ne suis pas intéressé, mais intéressé par celle qui s'intéresse.
-Au lieu de m'attirer physiquement, tu m'as touché intellectuellement.
-J'ai vite perdu en clarté, mon cerveau s'est enlisé,
-Les émotions m'ont frappé, mon cœur fut kidnappé.
+    const text = `
+Pépite, toi la fille de passage
+Rayonnante, douce, gentille et sage
+Dont la splendeur contamina les coeurs
+Avec intelligence et vie en couleurs
 
-La personne que j'étais se retrouve en captivité,
-Incapable de proposer, trop stimulé pour discuter.
-J'en perds mon authenticité, je suis le pantin de ma chimie,
-Je deviens vite un larbin, piloté par mes circuits.
+Munis de talons, ta collection révée,
+C'est sur la piste que tu t'en vas briller 
+Tu impressionnes tant par ton aura et ta dance,
+Que Grace Kelly épierai ton élégance.
 
-J'entends tes attentes, j'écoute ce que tu dis, 
-Mais rude est la pente de ce que tu m'as instruit.
-J'échoue et trébuche, tel un apprenti,
-Et comme un jeune pruche, je pousse et grandis.
+Tes petites attentions sont de précieux cadeaux,
+Si bien que tout les maux se dissipent aussitôt,
+Ta créativité et tes idées débordantes
+Rendent chaque histoire unique et marquante.
 
-Une sortie cinéma, voir un film miteux,
-Une promenade nocturne, croiser les nuiteux.
-Un arrêt près d'un bar, goûter un spiritueux,
-Une invite au resto, dans un mood amoureux.
-
-Te ramener ? Je préfère attendre, pas trop me presser.
-T'embrasser ? Pourquoi pas, mais tu es alcoolisée.
-T'inviter ? Perturbant, c'est mon intimité.
-Coucher ? Tentant, mais je ne veux profiter.
-
-D'une balade arrosée, nous nous sommes rapprochés,
-D'une belle soirée, nous nous sommes embrassés.
-D'invitations improvisées, nous nous sommes câlinés,
-D'une nuit agitée, nous nous sommes désirés.
-
-Main dans les cheveux, je t'ai caressée,
-Puis t'ai embrassée, t'ai vu sourire et briller.
-D'un désir intense, tes yeux à demi fermés,
-Dans le feu du désir, je t'ai vue t'abandonner.
-
-De ces soirées inopinées,
-Je n'oublierai l'amour porté. 
-De ces moments éphémères,
-Conserverai ta lumière
-
-Je t'aime sans m'attacher,  
-Je souffre sans te blâmer.
-Jaloux sans te posséder,  
-Frustré sans regretter.  
-
-Pour toi toujours mon cœur battra,  
-Même si je sais qu'on ne se reverra.  
-
-Je t'aime. Adieu.`;
+Autour d'un mariage et d'un amour sincère
+Trois Quatre enfants verront la lumière,
+Muni de ta jeunesse, ton avenir est clair
+Pépite, tu es une femme extraordinaire.
+`;
 
       const el = document.getElementById("poem");
       const btnPlay = document.getElementById("btnPlay");
