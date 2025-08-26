@@ -815,7 +815,7 @@ Pépite, tu es une femme extraordinaire.
       const audioToggle = document.getElementById("audioToggle");
       const audioStatus = document.getElementById("audioStatus");
       const volumeSlider = document.getElementById("volumeSlider");
-      audio.volume = 0.7;
+      audio.volume = 0.15;
       let audioInitialized = false;
       function updateAudioStatus(p, text) {
         audioToggle.textContent = p ? "🔊" : "🔇";
@@ -828,14 +828,14 @@ Pépite, tu es une femme extraordinaire.
           .then(() => {
             setTimeout(() => {
               audio.muted = false;
-              audio.volume = 0.7;
+              audio.volume = 0.15;
               audioInitialized = true;
               updateAudioStatus(true, "En lecture");
             }, 100);
           })
           .catch(() => {
             audio.muted = false;
-            audio.volume = 0.7;
+            audio.volume = 0.15;
             audio
               .play()
               .then(() => {
@@ -846,7 +846,7 @@ Pépite, tu es une femme extraordinaire.
                 updateAudioStatus(false, "Activer le son");
                 const startFirst = () => {
                   audio.muted = false;
-                  audio.volume = 0.7;
+                  audio.volume = 0.15;
                   audio
                     .play()
                     .then(() => {
