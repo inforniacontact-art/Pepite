@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0a0000" />
-  <title>Cadavre d'antan</title>
+  <title>Bourgeon écarlate</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet"
+  />
   <style>
     :root {
-      --bg-primary: #0a0000;
-      --bg-secondary: #1a0000;
-      --bg-accent: #2a0000;
-      --text-primary: #ffdddd;
-      --text-secondary: #ff8888;
-      --accent: #ff0000;
-      --accent-soft: #aa0000;
-      --cursor: #ff5555;
-      --card-bg: rgba(26, 0, 0, 0.85);
-      --card-border: rgba(255, 0, 0, 0.15);
-      --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.7);
-      --shadow-strong: 0 16px 48px rgba(0, 0, 0, 0.9);
-      --button-bg: rgba(255, 0, 0, 0.1);
-      --button-hover: rgba(255, 0, 0, 0.3);
+      --bg-primary: #1a0808;
+      --bg-secondary: #2a1010;
+      --bg-accent: #3a1515;
+      --text-primary: #e8d4d4;
+      --text-secondary: #c89999;
+      --accent: #b83333;
+      --accent-soft: #8a2424;
+      --cursor: #cc4444;
+      --card-bg: rgba(42, 16, 16, 0.75);
+      --card-border: rgba(184, 51, 51, 0.25);
+      --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.4);
+      --shadow-strong: 0 16px 48px rgba(0, 0, 0, 0.6);
+      --button-bg: rgba(184, 51, 51, 0.15);
+      --button-hover: rgba(184, 51, 51, 0.3);
+      --blood-primary: #8b0000;
+      --blood-secondary: #660000;
     }
 
     * {
@@ -39,12 +41,53 @@
     }
 
     body {
-      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-accent) 100%);
+      background: linear-gradient(
+        135deg,
+        var(--bg-primary) 0%,
+        var(--bg-secondary) 50%,
+        var(--bg-accent) 100%
+      );
       color: var(--text-primary);
       font-family: "Monotype Corsiva", cursive;
       overflow-x: hidden;
       min-height: 100vh;
       position: relative;
+    }
+
+    .navbar {
+      width: 100%;
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--card-border);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar ul {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      list-style: none;
+      padding: 0.8rem 1rem;
+      margin: 0;
+    }
+
+    .navbar .nav-link {
+      text-decoration: none;
+      color: var(--text-primary);
+      font-family: "Caveat", cursive;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar .nav-link:hover {
+      background: var(--button-hover);
+      color: var(--accent);
+      box-shadow: 0 4px 10px rgba(184, 51, 51, 0.3);
     }
 
     .container {
@@ -64,8 +107,19 @@
       color: var(--accent);
       text-align: center;
       margin: 0 0 2rem 0;
-      text-shadow: 0 0 12px #800000, 0 4px 20px #ff0000;
+      text-shadow: 0 0 8px var(--accent-soft), 0 2px 12px var(--blood-secondary);
+      letter-spacing: 0.05em;
       flex-shrink: 0;
+      animation: titleGlow 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes titleGlow {
+      0% {
+        text-shadow: 0 0 8px var(--accent-soft), 0 2px 12px var(--blood-secondary);
+      }
+      100% {
+        text-shadow: 0 0 12px var(--accent), 0 2px 18px var(--accent-soft), 0 0 24px var(--blood-primary);
+      }
     }
 
     .poem-container {
@@ -91,34 +145,35 @@
       left: -2px;
       right: -2px;
       bottom: -2px;
-      background: linear-gradient(45deg,
-          rgba(255, 0, 0, 0.2),
-          rgba(255, 0, 0, 0.05),
-          rgba(255, 0, 0, 0.15),
-          rgba(255, 0, 0, 0.3),
-          rgba(255, 0, 0, 0.1));
+      background: linear-gradient(
+        45deg,
+        rgba(184, 51, 51, 0.1),
+        rgba(184, 51, 51, 0.05),
+        rgba(184, 51, 51, 0.15),
+        rgba(184, 51, 51, 0.08)
+      );
       border-radius: 22px;
       z-index: -1;
-      filter: blur(8px);
-      animation: glow 4s ease-in-out infinite alternate;
+      filter: blur(6px);
+      animation: glow 6s ease-in-out infinite alternate;
     }
 
     @keyframes glow {
       0% {
         opacity: 0.3;
       }
-
       100% {
-        opacity: 0.7;
+        opacity: 0.6;
       }
     }
 
     .poem {
       font-family: "Times New Roman", serif;
       font-size: clamp(1rem, 2.5vw, 1.5rem);
-      line-height: 1.5;
-      color: #ff5555;
-      text-shadow: 0 0 8px #ff0000, 0 0 20px #800000;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      text-shadow: 0 0 4px var(--blood-secondary);
       white-space: pre-wrap;
       word-wrap: break-word;
       overflow-wrap: anywhere;
@@ -133,89 +188,27 @@
       display: inline-block;
       width: 3px;
       height: 1em;
-      background: linear-gradient(180deg, var(--cursor) 0%, rgba(255, 85, 85, 0.3) 100%);
+      background: linear-gradient(
+        180deg,
+        var(--cursor) 0%,
+        rgba(204, 68, 68, 0.3) 100%
+      );
       border-radius: 1px;
       margin-left: 1px;
       animation: pulse 1.2s ease-in-out infinite;
-      box-shadow: 0 0 10px var(--cursor);
+      box-shadow: 0 0 6px var(--cursor);
       transform: translateY(0.1em);
     }
 
     @keyframes pulse {
-
       0%,
       100% {
         opacity: 1;
         transform: translateY(0.1em) scaleY(1);
       }
-
       50% {
-        opacity: 0.3;
+        opacity: 0.4;
         transform: translateY(0.1em) scaleY(0.8);
-      }
-    }
-
-    .writing-line {
-      display: inline;
-      opacity: 0;
-      animation: fadeInWrite 0.1s ease-in forwards, bloodPulse 1.5s ease-in-out infinite alternate;
-    }
-
-    @keyframes fadeInWrite {
-      from {
-        opacity: 0;
-        transform: translateY(5px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes bloodPulse {
-      0% {
-        text-shadow: 0 0 2px #ff0000;
-      }
-
-      100% {
-        text-shadow: 0 0 12px #800000;
-      }
-    }
-
-    .bg-particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .particle {
-      position: absolute;
-      width: 2px;
-      height: 10px;
-      background: linear-gradient(to bottom, #ff0000, #800000);
-      border-radius: 50%;
-      opacity: 0.8;
-      animation: bloodDrip 3s linear infinite;
-    }
-
-    @keyframes bloodDrip {
-      0% {
-        transform: translateY(-20px) rotate(0deg);
-        opacity: 0;
-      }
-
-      30% {
-        opacity: 1;
-      }
-
-      100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0.2;
       }
     }
 
@@ -241,29 +234,541 @@
       letter-spacing: 0.03em;
       transition: all 0.3s ease;
       backdrop-filter: blur(5px);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      min-width: 80px;
+      text-decoration: none;
+    }
+
+    .btn svg {
+      transition: transform 0.2s ease;
+      width: 14px;
+      height: 14px;
+    }
+
+    .btn:hover svg {
+      transform: scale(1.1);
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(184, 51, 51, 0.2),
+        transparent
+      );
+      transition: left 0.5s ease;
     }
 
     .btn:hover {
       background: var(--button-hover);
       border-color: var(--accent-soft);
       color: var(--accent);
-      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+      box-shadow: 0 4px 15px rgba(184, 51, 51, 0.4);
       transform: translateY(-2px);
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn:disabled:hover {
+      background: var(--button-bg);
+      border-color: var(--card-border);
+      color: var(--text-primary);
+      box-shadow: none;
+      transform: none;
+    }
+
+    .writing-line {
+      display: inline;
+      opacity: 0;
+      animation: fadeInWrite 0.15s ease-in forwards, bloodPulse 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeInWrite {
+      from {
+        opacity: 0;
+        transform: translateY(3px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bloodPulse {
+      0% {
+        text-shadow: 0 0 2px var(--blood-secondary);
+      }
+      100% {
+        text-shadow: 0 0 6px var(--blood-primary), 0 0 12px var(--blood-secondary);
+      }
+    }
+
+    .audio-controls {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      align-items: flex-end;
+    }
+
+    .soundcloud-widget {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 15px;
+      padding: 0.8rem;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-soft);
+      transition: all 0.3s ease;
+      width: 280px;
+      max-width: calc(100vw - 2rem);
+    }
+
+    .soundcloud-widget:hover {
+      box-shadow: var(--shadow-strong);
+      transform: translateY(-2px);
+    }
+
+    .soundcloud-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .soundcloud-icon {
+      width: 20px;
+      height: 20px;
+      fill: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .soundcloud-title {
+      font-family: "Caveat", cursive;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    .soundcloud-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.8rem;
+      display: block;
+      margin-top: 0.3rem;
+      transition: color 0.3s ease;
+    }
+
+    .soundcloud-link:hover {
+      color: var(--accent-soft);
+    }
+
+    .audio-player {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 25px;
+      padding: 0.6rem 1rem;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-soft);
+      transition: all 0.3s ease;
+    }
+
+    .audio-player:hover {
+      box-shadow: var(--shadow-strong);
+      transform: translateY(-2px);
+    }
+
+    .audio-toggle {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0.2rem;
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .audio-toggle:hover {
+      background: var(--button-hover);
+      transform: scale(1.1);
+    }
+
+    .audio-status {
+      font-family: "Caveat", cursive;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-left: 0.3rem;
+    }
+
+    .volume-slider {
+      width: 60px;
+      height: 4px;
+      background: var(--card-border);
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+      -webkit-appearance: none;
+    }
+
+    .volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(184, 51, 51, 0.3);
+    }
+
+    .volume-slider::-moz-range-thumb {
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 2px 6px rgba(184, 51, 51, 0.3);
+    }
+
+    .bg-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .blood-drop {
+      position: absolute;
+      border-radius: 50% 50% 50% 0;
+      background: radial-gradient(circle at 30% 30%, 
+        var(--blood-primary) 0%, 
+        var(--blood-secondary) 60%, 
+        #440000 100%);
+      transform: rotate(-45deg);
+      animation: bloodDrip linear infinite;
+      box-shadow: 
+        inset -2px -2px 4px rgba(0,0,0,0.3),
+        0 0 8px rgba(139, 0, 0, 0.4);
+      opacity: 0.8;
+    }
+
+    .blood-trail {
+      position: absolute;
+      width: 2px;
+      background: linear-gradient(to bottom, 
+        rgba(139, 0, 0, 0.6) 0%, 
+        rgba(139, 0, 0, 0.3) 50%,
+        transparent 100%);
+      border-radius: 1px;
+      animation: trailFade linear infinite;
+    }
+
+    @keyframes bloodDrip {
+      0% {
+        top: -20px;
+        opacity: 0;
+      }
+      5% {
+        opacity: 0.8;
+      }
+      95% {
+        opacity: 0.6;
+      }
+      100% {
+        top: 100vh;
+        opacity: 0;
+      }
+    }
+
+    @keyframes trailFade {
+      0% {
+        height: 0;
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.6;
+      }
+      90% {
+        opacity: 0.3;
+      }
+      100% {
+        height: 40px;
+        opacity: 0;
+      }
+    }
+
+    .start-button {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1001;
+      background: var(--card-bg);
+      border: 2px solid var(--accent);
+      color: var(--text-primary);
+      font-family: "Caveat", cursive;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      border-radius: 25px;
+      cursor: pointer;
+      backdrop-filter: blur(15px);
+      box-shadow: var(--shadow-strong);
+      transition: all 0.3s ease;
+      animation: startPulse 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes startPulse {
+      0% {
+        box-shadow: var(--shadow-strong), 0 0 20px rgba(184, 51, 51, 0.3);
+      }
+      100% {
+        box-shadow: var(--shadow-strong), 0 0 30px rgba(184, 51, 51, 0.6);
+      }
+    }
+
+    .start-button:hover {
+      background: var(--button-hover);
+      color: var(--accent);
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem 0.5rem;
+      }
+      .poem-container {
+        width: min(750px, 96vw);
+        border-radius: 15px;
+        margin-bottom: 1.5rem;
+        padding: clamp(1rem, 3vw, 1.8rem);
+      }
+      .poem {
+        font-size: clamp(0.9rem, 3vw, 1.3rem);
+        line-height: 1.5;
+      }
+      .controls {
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+      .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+        min-width: 70px;
+      }
+      .title {
+        margin: 0 0 1.5rem 0;
+      }
+      .audio-controls {
+        bottom: 0.5rem;
+        right: 0.5rem;
+      }
+      .soundcloud-widget {
+        width: 260px;
+        padding: 0.6rem;
+      }
+      .soundcloud-title {
+        font-size: 0.85rem;
+      }
+      .audio-player {
+        padding: 0.5rem 0.8rem;
+      }
+      .volume-slider {
+        width: 50px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0.8rem 0.15rem;
+      }
+      .poem-container {
+        width: min(700px, 98.5vw);
+        padding: 1rem 0.5rem;
+        border-radius: 12px;
+      }
+      .poem {
+        font-size: clamp(0.7rem, 3vw, 1.2rem);
+        line-height: 1.4;
+      }
+      .title {
+        font-size: clamp(2rem, 6vw, 2.8rem);
+        margin: 0 0 1rem 0;
+      }
+      .btn {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.8rem;
+        min-width: 60px;
+        gap: 0.2rem;
+      }
+      .controls {
+        margin-top: 0.5rem;
+      }
+      .audio-controls {
+        bottom: 0.5rem;
+        right: 0.5rem;
+      }
+      .soundcloud-widget {
+        width: 240px;
+        padding: 0.5rem;
+      }
+      .soundcloud-title {
+        font-size: 0.8rem;
+      }
+      .soundcloud-link {
+        font-size: 0.75rem;
+      }
+      .audio-player {
+        padding: 0.4rem 0.6rem;
+        gap: 0.3rem;
+      }
+      .audio-toggle {
+        font-size: 0.9rem;
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+      .audio-status {
+        font-size: 0.8rem;
+      }
+      .volume-slider {
+        width: 40px;
+      }
+      .start-button {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+      }
     }
   </style>
 </head>
 
 <body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="message.html" class="nav-link">Pépite</a></li>
+      <li><a href="souvenir.html" class="nav-link">Souvenir</a></li>
+      <li><a href="bourgeon.html" class="nav-link">Bourgeon</a></li>
+    </ul>
+  </nav>
+
   <div class="bg-particles" id="particles"></div>
   <div class="container">
-    <h1 class="title">Cadavre d'antan</h1>
-    <div class="poem-container">
-      <div id="poem" class="poem" aria-live="polite"></div>
+    <h1 class="title">Bourgeon écarlate</h1>
+    <div class="main-content">
+      <div class="poem-container">
+        <div id="poem" class="poem" aria-live="polite"></div>
+      </div>
+      <div class="controls">
+        <button
+          id="btnPlay"
+          class="btn"
+          aria-label="Rejouer l'animation"
+          style="display: none"
+        >
+          Rejouer
+        </button>
+        <button
+          id="btnPause"
+          class="btn"
+          aria-label="Mettre en pause"
+          style="display: none"
+        >
+          Pause
+        </button>
+        <button
+          id="btnResume"
+          class="btn"
+          aria-label="Reprendre"
+          style="display: none"
+        >
+          Reprendre
+        </button>
+          <button id="btnStart" class="start-button">
+    ▶ Démarrer
+  </button>
+        <button id="btnSkip" class="btn" aria-label="Afficher tout">
+          Afficher tout
+        </button>
+      </div>
     </div>
-    <div class="controls">
-      <button id="btnStart" class="btn">▶ Démarrer</button>
-      <button id="btnSkip" class="btn">Afficher tout</button>
+    <div class="audio-controls">
+      <div class="soundcloud-widget">
+        <div class="soundcloud-header">
+          <svg class="soundcloud-icon" viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.19 0 2.34-.21 3.41-.6.3-.11.49-.4.49-.72 0-.43-.35-.78-.78-.78-.18 0-.35.06-.49.16-.82.29-1.69.44-2.63.44-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6c0 .55-.45 1-1 1H15c-1.65 0-3 1.35-3 3s1.35 3 3 3h1c.55 0 1 .45 1 1s-.45 1-1 1h-1c-2.76 0-5-2.24-5-5s2.24-5 5-5h1c1.65 0 3 1.35 3 3 0 4.42-3.58 8-8 8z"
+            />
+          </svg>
+          <div>
+            <h3 class="soundcloud-title">Musique d'ambiance</h3>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="soundcloud-link"
+              >Votre lien SoundCloud ici</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="audio-player">
+        <button id="audioToggle" class="audio-toggle">🔇</button>
+        <span id="audioStatus" class="audio-status">Activer le son</span>
+        <input
+          id="volumeSlider"
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value="0.6"
+          class="volume-slider"
+        />
+      </div>
     </div>
+    <audio id="ambientAudio" loop preload="auto">
+      <!-- Remplacez par votre fichier audio -->
+      <source
+        src="YOUR_AUDIO_FILE.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
   </div>
 
   <script>
@@ -273,13 +778,13 @@ Puis éveillé l'être qui sommeillait chez moi
 Et t'ai offert l'ancien et son souffle expirant
 
 Tout ce que j'ai fait fut d'un élan assumé
-Je n’ai point regardé ce que ton cœur voulait.
+Je n'ai point regardé ce que ton cœur voulait.
 J'ai désiré aimer, m'améliorer, offrir
 Et consenti aux pleurs, aux souffrances, à mourir
 
-J’ai saisi ces instants comme une élévation
+J'ai saisi ces instants comme une élévation
 Et choisi sciemment, de vivre l'enseignement
-Cela conduit maintenant à son exclusion
+Cela conduit maintenant à sa séparation
 J'ai préféré l'occire, goûter le saignement
 
 C'est d'une vivacité et positivité
@@ -289,6 +794,9 @@ Et m'abreuve sans fin du cadavre d'antan`;
 
     const el = document.getElementById("poem");
     const btnStart = document.getElementById("btnStart");
+    const btnPlay = document.getElementById("btnPlay");
+    const btnPause = document.getElementById("btnPause");
+    const btnResume = document.getElementById("btnResume");
     const btnSkip = document.getElementById("btnSkip");
     let idx = 0;
     let playing = false;
@@ -297,24 +805,41 @@ Et m'abreuve sans fin du cadavre d'antan`;
     cursor.className = "cursor";
 
     function getDelayFor(c, p) {
-      const base = 50;
-      if (c == "\n") return 400;
-      if (c == " ") return base * 0.7;
-      if (",;:".includes(c)) return 200;
-      if (".!?…".includes(c)) return 600;
+      const base = 60;
+      if (c == "\n") {
+        if (p == "\n") return 1400;
+        return 500;
+      }
+      if (c == " ") return base * 0.6;
+      if (",;:".includes(c)) return 250;
+      if (".!?…".includes(c)) return 700;
+      if (c == "—") return 350;
       return base;
     }
 
     function typeCharacter() {
-      if (!playing || idx >= text.length) return;
+      if (!playing || idx >= text.length) {
+        if (idx >= text.length) ensureCursorAtEnd();
+        return;
+      }
       const c = text[idx];
+      const p = idx > 0 ? text[idx - 1] : "";
       const span = document.createElement("span");
       span.textContent = c;
       span.className = "writing-line";
       el.appendChild(span);
-      idx++;
       ensureCursorAtEnd();
-      const delay = getDelayFor(c, "");
+      if (c == "\n" || idx % 50 == 0) {
+        setTimeout(() => {
+          cursor.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+            inline: "nearest",
+          });
+        }, 100);
+      }
+      idx++;
+      const delay = getDelayFor(c, p);
       timeoutId = setTimeout(typeCharacter, delay);
     }
 
@@ -324,35 +849,192 @@ Et m'abreuve sans fin du cadavre d'antan`;
     }
 
     function play() {
+      if (idx >= text.length) reset();
       playing = true;
+      btnPlay.style.display = "none";
+      btnPause.style.display = "inline-flex";
+      btnResume.style.display = "none";
       typeCharacter();
-      btnStart.style.display = "none";
+    }
+
+    function pause() {
+      playing = false;
+      clearTimeout(timeoutId);
+      btnPause.style.display = "none";
+      btnResume.style.display = "inline-flex";
+    }
+
+    function resume() {
+      playing = true;
+      btnResume.style.display = "none";
+      btnPause.style.display = "inline-flex";
+      typeCharacter();
     }
 
     function skipAll() {
       playing = false;
       clearTimeout(timeoutId);
-      el.textContent = text;
+      el.innerHTML = "";
+      text.split("\n").forEach((line, i) => {
+        const div = document.createElement("div");
+        div.textContent = line;
+        div.style.animationDelay = `${i * 0.1}s`;
+        div.className = "writing-line";
+        el.appendChild(div);
+        if (i < text.split("\n").length - 1)
+          el.appendChild(document.createElement("br"));
+      });
       ensureCursorAtEnd();
+      idx = text.length;
+      btnPlay.style.display = "inline-flex";
+      btnPause.style.display = "none";
+      btnResume.style.display = "none";
     }
 
-    btnStart.addEventListener("click", play);
+    function reset() {
+      playing = false;
+      clearTimeout(timeoutId);
+      idx = 0;
+      el.innerHTML = "";
+      btnPlay.style.display = "inline-flex";
+      btnPause.style.display = "none";
+      btnResume.style.display = "none";
+    }
+
+    function startExperience() {
+      btnStart.style.display = "none";
+      startAudioAutomatically();
+      createBloodDrops();
+      play();
+    }
+
+    btnStart.addEventListener("click", startExperience);
+    btnPlay.addEventListener("click", play);
+    btnPause.addEventListener("click", pause);
+    btnResume.addEventListener("click", resume);
     btnSkip.addEventListener("click", skipAll);
 
-    function createParticles() {
-      const c = document.getElementById("particles");
-      for (let i = 0; i < 20; i++) {
-        const p = document.createElement("div");
-        p.className = "particle";
-        p.style.left = Math.random() * 100 + "%";
-        p.style.animationDelay = Math.random() * 3 + "s";
-        p.style.animationDuration = 2 + Math.random() * 4 + "s";
-        c.appendChild(p);
-      }
+    function createBloodDrop() {
+      const drop = document.createElement("div");
+      drop.className = "blood-drop";
+      
+      // Taille aléatoire de la goutte
+      const size = 4 + Math.random() * 8;
+      drop.style.width = size + "px";
+      drop.style.height = size + "px";
+      
+      // Position horizontale aléatoire
+      drop.style.left = Math.random() * 100 + "%";
+      
+      // Durée d'animation aléatoire
+      const duration = 3 + Math.random() * 4;
+      drop.style.animationDuration = duration + "s";
+      
+      // Délai aléatoire
+      drop.style.animationDelay = Math.random() * 2 + "s";
+      
+      // Créer une traînée pour la goutte
+      const trail = document.createElement("div");
+      trail.className = "blood-trail";
+      trail.style.left = drop.style.left;
+      trail.style.top = "0";
+      trail.style.animationDuration = duration + "s";
+      trail.style.animationDelay = drop.style.animationDelay;
+      
+      document.getElementById("particles").appendChild(drop);
+      document.getElementById("particles").appendChild(trail);
+      
+      // Supprimer les éléments après l'animation
+      setTimeout(() => {
+        if (drop.parentNode) drop.parentNode.removeChild(drop);
+        if (trail.parentNode) trail.parentNode.removeChild(trail);
+      }, (duration + 2) * 1000);
     }
-    createParticles();
+
+    function createBloodDrops() {
+      // Créer des gouttes initiales
+      for (let i = 0; i < 8; i++) {
+        setTimeout(() => createBloodDrop(), i * 500);
+      }
+      
+      // Continuer à créer des gouttes périodiquement
+      setInterval(() => {
+        if (Math.random() < 0.7) { // 70% de chance de créer une goutte
+          createBloodDrop();
+        }
+      }, 2000);
+    }
+
+    const audio = document.getElementById("ambientAudio");
+    const audioToggle = document.getElementById("audioToggle");
+    const audioStatus = document.getElementById("audioStatus");
+    const volumeSlider = document.getElementById("volumeSlider");
+    audio.volume = 0.6;
+    let audioInitialized = false;
+
+    function updateAudioStatus(p, text) {
+      audioToggle.textContent = p ? "🔊" : "🔇";
+      audioStatus.textContent = text;
+    }
+
+    function startAudioAutomatically() {
+      audio.muted = true;
+      audio
+        .play()
+        .then(() => {
+          setTimeout(() => {
+            audio.muted = false;
+            audio.volume = 0.6;
+            audioInitialized = true;
+            updateAudioStatus(true, "En lecture");
+          }, 100);
+        })
+        .catch(() => {
+          audio.muted = false;
+          audio.volume = 0.6;
+          audio
+            .play()
+            .then(() => {
+              audioInitialized = true;
+              updateAudioStatus(true, "En lecture");
+            })
+            .catch(() => {
+              updateAudioStatus(false, "Activer le son");
+              const startFirst = () => {
+                audio.muted = false;
+                audio.volume = 0.6;
+                audio
+                  .play()
+                  .then(() => {
+                    audioInitialized = true;
+                    updateAudioStatus(true, "En lecture");
+                  })
+                  .catch(() => {
+                    updateAudioStatus(false, "Activer le son");
+                  });
+              };
+              audioToggle.addEventListener("click", startFirst, { once: true });
+            });
+        });
+    }
+
+    audioToggle.addEventListener("click", () => {
+      if (!audioInitialized) return;
+      if (audio.paused) {
+        audio.play();
+        updateAudioStatus(true, "En lecture");
+      } else {
+        audio.pause();
+        updateAudioStatus(false, "En pause");
+      }
+    });
+
+    volumeSlider.addEventListener("input", (e) => {
+      audio.volume = e.target.value;
+    });
+
+    // Initialiser le curseur au démarrage
     ensureCursorAtEnd();
   </script>
 </body>
-
 </html>
