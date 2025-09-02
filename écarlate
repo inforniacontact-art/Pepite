@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0a0000" />
+  <title>Cadavre d'antan</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --bg-primary: #0a0000;
+      --bg-secondary: #1a0000;
+      --bg-accent: #2a0000;
+      --text-primary: #ffdddd;
+      --text-secondary: #ff8888;
+      --accent: #ff0000;
+      --accent-soft: #aa0000;
+      --cursor: #ff5555;
+      --card-bg: rgba(26, 0, 0, 0.85);
+      --card-border: rgba(255, 0, 0, 0.15);
+      --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.7);
+      --shadow-strong: 0 16px 48px rgba(0, 0, 0, 0.9);
+      --button-bg: rgba(255, 0, 0, 0.1);
+      --button-hover: rgba(255, 0, 0, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-accent) 100%);
+      color: var(--text-primary);
+      font-family: "Monotype Corsiva", cursive;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .title {
+      font-family: "Monotype Corsiva", cursive;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 600;
+      color: var(--accent);
+      text-align: center;
+      margin: 0 0 2rem 0;
+      text-shadow: 0 0 12px #800000, 0 4px 20px #ff0000;
+      flex-shrink: 0;
+    }
+
+    .poem-container {
+      flex: 1;
+      width: min(850px, 95vw);
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      box-shadow: var(--shadow-strong);
+      backdrop-filter: blur(10px);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      margin-bottom: 2rem;
+    }
+
+    .poem-container::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg,
+          rgba(255, 0, 0, 0.2),
+          rgba(255, 0, 0, 0.05),
+          rgba(255, 0, 0, 0.15),
+          rgba(255, 0, 0, 0.3),
+          rgba(255, 0, 0, 0.1));
+      border-radius: 22px;
+      z-index: -1;
+      filter: blur(8px);
+      animation: glow 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      0% {
+        opacity: 0.3;
+      }
+
+      100% {
+        opacity: 0.7;
+      }
+    }
+
+    .poem {
+      font-family: "Times New Roman", serif;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      line-height: 1.5;
+      color: #ff5555;
+      text-shadow: 0 0 8px #ff0000, 0 0 20px #800000;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow-wrap: anywhere;
+      position: relative;
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 5px;
+      min-height: 2em;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1em;
+      background: linear-gradient(180deg, var(--cursor) 0%, rgba(255, 85, 85, 0.3) 100%);
+      border-radius: 1px;
+      margin-left: 1px;
+      animation: pulse 1.2s ease-in-out infinite;
+      box-shadow: 0 0 10px var(--cursor);
+      transform: translateY(0.1em);
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: translateY(0.1em) scaleY(1);
+      }
+
+      50% {
+        opacity: 0.3;
+        transform: translateY(0.1em) scaleY(0.8);
+      }
+    }
+
+    .writing-line {
+      display: inline;
+      opacity: 0;
+      animation: fadeInWrite 0.1s ease-in forwards, bloodPulse 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeInWrite {
+      from {
+        opacity: 0;
+        transform: translateY(5px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bloodPulse {
+      0% {
+        text-shadow: 0 0 2px #ff0000;
+      }
+
+      100% {
+        text-shadow: 0 0 12px #800000;
+      }
+    }
+
+    .bg-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 10px;
+      background: linear-gradient(to bottom, #ff0000, #800000);
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: bloodDrip 3s linear infinite;
+    }
+
+    @keyframes bloodDrip {
+      0% {
+        transform: translateY(-20px) rotate(0deg);
+        opacity: 0;
+      }
+
+      30% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0.2;
+      }
+    }
+
+    .controls {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      background: var(--button-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-primary);
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: "Caveat", cursive;
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .btn:hover {
+      background: var(--button-hover);
+      border-color: var(--accent-soft);
+      color: var(--accent);
+      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-particles" id="particles"></div>
+  <div class="container">
+    <h1 class="title">Cadavre d'antan</h1>
+    <div class="poem-container">
+      <div id="poem" class="poem" aria-live="polite"></div>
+    </div>
+    <div class="controls">
+      <button id="btnStart" class="btn">▶ Démarrer</button>
+      <button id="btnSkip" class="btn">Afficher tout</button>
+    </div>
+  </div>
+
+  <script>
+    const text = `Tu m'as aidé à tuer le garçon en émoi
+Une pièce majeure, introuvable autrement
+Puis éveillé l'être qui sommeillait chez moi
+Et t'ai offert l'ancien et son souffle expirant
+
+Tout ce que j'ai fait fut d'un élan assumé
+Je n’ai point regardé ce que ton cœur voulait.
+J'ai désiré aimer, m'améliorer, offrir
+Et consenti aux pleurs, aux souffrances, à mourir
+
+J’ai saisi ces instants comme une élévation
+Et choisi sciemment, de vivre l'enseignement
+Cela conduit maintenant à son exclusion
+J'ai préféré l'occire, goûter le saignement
+
+C'est d'une vivacité et positivité
+Que j'avance et renais au rythme du présent
+Je poursuis mon chemin d'un sourire affiché
+Et m'abreuve sans fin du cadavre d'antan`;
+
+    const el = document.getElementById("poem");
+    const btnStart = document.getElementById("btnStart");
+    const btnSkip = document.getElementById("btnSkip");
+    let idx = 0;
+    let playing = false;
+    let timeoutId = null;
+    const cursor = document.createElement("span");
+    cursor.className = "cursor";
+
+    function getDelayFor(c, p) {
+      const base = 50;
+      if (c == "\n") return 400;
+      if (c == " ") return base * 0.7;
+      if (",;:".includes(c)) return 200;
+      if (".!?…".includes(c)) return 600;
+      return base;
+    }
+
+    function typeCharacter() {
+      if (!playing || idx >= text.length) return;
+      const c = text[idx];
+      const span = document.createElement("span");
+      span.textContent = c;
+      span.className = "writing-line";
+      el.appendChild(span);
+      idx++;
+      ensureCursorAtEnd();
+      const delay = getDelayFor(c, "");
+      timeoutId = setTimeout(typeCharacter, delay);
+    }
+
+    function ensureCursorAtEnd() {
+      if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
+      el.appendChild(cursor);
+    }
+
+    function play() {
+      playing = true;
+      typeCharacter();
+      btnStart.style.display = "none";
+    }
+
+    function skipAll() {
+      playing = false;
+      clearTimeout(timeoutId);
+      el.textContent = text;
+      ensureCursorAtEnd();
+    }
+
+    btnStart.addEventListener("click", play);
+    btnSkip.addEventListener("click", skipAll);
+
+    function createParticles() {
+      const c = document.getElementById("particles");
+      for (let i = 0; i < 20; i++) {
+        const p = document.createElement("div");
+        p.className = "particle";
+        p.style.left = Math.random() * 100 + "%";
+        p.style.animationDelay = Math.random() * 3 + "s";
+        p.style.animationDuration = 2 + Math.random() * 4 + "s";
+        c.appendChild(p);
+      }
+    }
+    createParticles();
+    ensureCursorAtEnd();
+  </script>
+</body>
+
+</html>
