@@ -7,8 +7,7 @@ const PAGES = {
   annee2026: {
     title: "2026",
     date: "25 janvier 2026",
-    text: `
-Une nouvelle année a commencé.
+    text: `Une nouvelle année a commencé.
 J'ai eu une pensée pour toi et j'espère que la relation que tu as choisie a bien démarré.
 
 De mon côté, je continue d'évoluer, souvent dans l'inconfort et l'incertitude.
@@ -21,11 +20,11 @@ celle qui sait reconnaître quand sa propre brillance est menacée et quand elle
 Celle qui, sans le savoir, m'a apporté des éléments sur comment aimer et apprécier pleinement les femmes.
 
 De 2025, je garde aussi de toi cette phrase : tu m'as dit que j'étais une bonne personne.
-Je sais aujourd’hui que cela ne suffit pas.
+Je sais aujourd'hui que cela ne suffit pas.
 Être une bonne personne demande aussi de la solidité, de la tenue, une capacité à rester droit sans attendre de reconnaissance visible.
-C’est un chemin exigeant. Je n'ai pas le droit de stagner.
+C'est un chemin exigeant. Je n'ai pas le droit de stagner.
 
-L’intégrité n’offre pas toujours de récompenses visibles ; elle met à l’épreuve.
+L'intégrité n'offre pas toujours de récompenses visibles ; elle met à l'épreuve.
 Si jamais les choses tournent mal, je te souhaite de garder ta clarté plutôt que de céder à la généralisation.
 
 Je n'ai pas grand-chose de plus à dire, si ce n'est te souhaiter une bonne année.`,
@@ -36,13 +35,118 @@ Je n'ai pas grand-chose de plus à dire, si ce n'est te souhaiter une bonne ann�
       link: "https://soundcloud.com/mickawolf/first-of-2026",
     },
     effect: "none",
-    speed: 50,
+    speed: 42,
     theme: {
-      bg: "#2a2a2a, #3a3a3a, #4a4a4a",
-      text: "#e0e0e0",
-      accent: "#8b9dc3",
-      card: "rgba(50,50,50,0.9)",
+      bg: "#0a0e14, #0f1419, #141b24",
+      text: "#e6edf3",
+      accent: "#58a6ff",
+      card: "rgba(22,27,34,0.95)",
     },
+    css: `
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+        letter-spacing: -0.01em;
+      }
+      
+      #title {
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+        font-weight: 500;
+        font-size: clamp(2.8rem, 6vw, 4rem);
+        letter-spacing: -0.02em;
+        margin-bottom: 0.5rem;
+      }
+      
+      .date {
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+        color: #8b949e;
+        font-size: 0.95rem;
+        font-weight: 400;
+        opacity: 1;
+        margin-bottom: 3rem;
+      }
+      
+      .poem-container {
+        border: 1px solid rgba(88, 166, 255, 0.15);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(88, 166, 255, 0.08);
+        position: relative;
+      }
+      
+      .poem-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 48px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #58a6ff, transparent);
+        opacity: 0.6;
+      }
+      
+      .poem {
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+        font-size: clamp(1rem, 2.2vw, 1.15rem);
+        line-height: 1.7;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        color: #e6edf3;
+      }
+      
+      .btn {
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+        background: rgba(88, 166, 255, 0.08);
+        border: 1px solid rgba(88, 166, 255, 0.2);
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .btn:hover {
+        background: rgba(88, 166, 255, 0.12);
+        border-color: rgba(88, 166, 255, 0.3);
+        transform: translateY(-1px);
+      }
+      
+      .cursor {
+        background: #58a6ff;
+        opacity: 0.8;
+      }
+      
+      .writing-line {
+        animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+      
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(2px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .navbar {
+        background: rgba(10, 14, 20, 0.8);
+        border-bottom: 1px solid rgba(88, 166, 255, 0.1);
+      }
+      
+      .nav-link {
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+      }
+      
+      @media (prefers-reduced-motion: reduce) {
+        .writing-line,
+        .cursor,
+        .btn {
+          animation: none;
+          transition: none;
+        }
+      }
+    `,
   },
   message: {
     title: "Message",
