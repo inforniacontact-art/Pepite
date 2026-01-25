@@ -29,7 +29,12 @@ L’intégrité n’offre pas toujours de récompenses visibles ; elle met à l�
 Si jamais les choses tournent mal, je te souhaite de garder ta clarté plutôt que de céder à la généralisation.
 
 Je n'ai pas grand-chose de plus à dire, si ce n'est te souhaiter une bonne année.`,
-    audio: { src: "", vol: 0, title: "", link: "#" },
+    audio: {
+      src: "https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/assets/2026.mp3",
+      vol: 0.6,
+      title: "2026",
+      link: "https://soundcloud.com/mickawolf/2026",
+    },
     effect: "none",
     speed: 50,
     theme: {
