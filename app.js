@@ -144,7 +144,7 @@ Que j'avance et renais au rythme du présent
 Je poursuis mon chemin d'un sourire affiché
 Et m'abreuve sans fin du cadavre d'antan`,
     audio: {
-      src: "https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/Morceau%20sans%20titre.mp3",
+      src: "https://github.com/inforniacontact-art/Pepite/raw/main/assets/Morceau%20sans%20titre.mp3",
       vol: 0.6,
       title: "Musique d'ambiance",
       link: "#",
@@ -193,7 +193,7 @@ Trois Quatre enfants verront la lumière,
 Muni de ta jeunesse, ton avenir est clair
 Pépite, sera une mère extraordinaire.`,
     audio: {
-      src: "https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/21%202_4(1).mp3",
+      src: "https://github.com/inforniacontact-art/Pepite/raw/main/assets/21%202_4(1).mp3",
       vol: 0.15,
       title: "Puck Road",
       link: "https://soundcloud.com/mickawolf/puck-road",
@@ -260,7 +260,7 @@ Même si je sais qu'on ne se reverra.
 
 Je t'aime. Adieu.`,
     audio: {
-      src: "https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/21%202_4(1).mp3",
+      src: "https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/assets/Travel%20Island%20v2.mp3",
       vol: 0.15,
       title: "Puck Road",
       link: "https://soundcloud.com/mickawolf/puck-road",
