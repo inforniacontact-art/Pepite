@@ -33,7 +33,7 @@ Je n'ai pas grand-chose de plus √† dire, si ce n'est te souhaiter une bonne ann√
       src: "https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/assets/2026.mp3",
       vol: 0.6,
       title: "2026",
-      link: "https://soundcloud.com/mickawolf/2026",
+      link: "https://soundcloud.com/mickawolf/first-of-2026",
     },
     effect: "none",
     speed: 50,
