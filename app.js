@@ -21,7 +21,7 @@ Tu m'as dis que j'étais une bonne personne. J'ai compris qu'il faut plus que ç
 
 Merci pour cette rencontre
 
-Je te souhaite une année à la hauteur de ce que tu souhaites.`,
+Je te souhaite une année à la hauteur de tes objectifs.`,
     audio: {
       src: "https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/assets/2026.mp3",
       vol: 0.6,
