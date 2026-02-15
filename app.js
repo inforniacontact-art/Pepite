@@ -7,29 +7,25 @@ const PAGES = {
   annee2026: {
     title: "2026",
     date: "25 janvier 2026",
-    text: `Une nouvelle année a commencé.
-J'ai eu une pensée pour toi et j'espère que la relation que tu as choisie a bien démarré.
+    text: `Une nouvelle année commence.
 
-De mon côté, je continue d'évoluer, souvent dans l'inconfort et l'incertitude.
-Je sais que c'est le prix du mouvement et de la progression.
-Alors je continue.
-Je ne mesure pas mon changement, mais il est présent.
+J’ai eu une pensée pour toi et j’espère sincèrement que la relation que tu as choisie t’apporte ce que tu cherchais.
 
-De 2025, tu resteras cette lumière que j'ai connue,
-celle qui sait reconnaître quand sa propre brillance est menacée et quand elle mérite d'être protégée.
-Celle qui, sans le savoir, m'a apporté des éléments sur comment aimer et apprécier pleinement les femmes.
+De mon côté, j’avance.
+Je continue de construire, d’apprendre, d’assumer mes choix.
+Le mouvement n’est pas toujours confortable, mais il est nécessaire.
 
-De 2025, je garde aussi de toi cette phrase : tu m'as dit que j'étais une bonne personne.
-Je sais aujourd'hui que cela ne suffit pas.
-Être une bonne personne demande aussi de la solidité, de la tenue, une capacité à rester droit sans attendre de reconnaissance visible.
-C'est un chemin exigeant. Je n'ai pas le droit de stagner.
+Je garde de 2025 le souvenir d’une rencontre marquante.
+Tu as été une lumière à un moment précis de ma vie, et je respecte ce que cela a représenté.
 
-L'intégrité n'offre pas toujours de récompenses visibles ; elle met à l'épreuve.
-Si jamais les choses tournent mal, je te souhaite de garder ta clarté plutôt que de céder à la généralisation.
+Tu m’as dit un jour que j’étais une bonne personne.
+Aujourd’hui, je comprends que cela implique aussi d’être solide, aligné, constant — même quand personne ne regarde.
+C’est ce vers quoi je tends.
 
-Je n'ai pas grand-chose de plus à dire, si ce n'est te souhaiter une bonne année.
+Je te souhaite une année claire, apaisée et cohérente avec qui tu es.
 
-Bon anniversaire aussi !`,
+Bonne année.
+Et bon anniversaire.`,
     audio: {
       src: "https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/assets/2026.mp3",
       vol: 0.6,
