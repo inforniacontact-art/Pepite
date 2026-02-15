@@ -15,7 +15,7 @@ Je garderai une trace de ton passage en 2025. Ce regard et ce sourire, c'était 
 
 Et c'est avec ce sentiment que j'avance depuis. Un sentiment qui donne envie de trouver, de s'investir, de construire.
 
-Ca met la barre haute sur mes exigences, de l'autre comme de moi même.
+Cela a élevé mes exigences, envers l'autre comme de moi même.
 
 Merci pour cette rencontre
 
