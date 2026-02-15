@@ -25,10 +25,11 @@ Prendre le temps, laisser respirer, de l'espace, être ce qui doit être, peu im
 
 Qu'il faut de la solidité, de la constance, une vision, que tu m'as aidé à trouver.
 
+Merci pour cette rencontre
+
 Je te souhaite une année brillante, sereine et à la hauteur de ce que tu souhaites.
 
-Bonne année.
-Et bon anniversaire en retard.`,
+Bonne année et bon anniversaire en retard.`,
     audio: {
       src: "https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/assets/2026.mp3",
       vol: 0.6,
