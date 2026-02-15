@@ -11,9 +11,7 @@ const PAGES = {
 
 J’ai eu une pensée pour toi ce jour. J’espère que la relation que tu as choisie te va.
 
-Je garderai une trace de ton passage en 2025.
-
-Même si c'était pour du jeu, des tests, ou du sérieux que sais-je, j'ai aimé ce regard et ce sourire, se sentir vraiment choisis, c'est agréable.
+Je garderai une trace de ton passage en 2025. Ce regard et ce sourire, c'était agréable.
 
 Et c'est avec ce sentiment que j'avance depuis. Un sentiment qui donne envie de trouver, de s'investir, de construire.
 
