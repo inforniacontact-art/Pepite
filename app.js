@@ -15,11 +15,9 @@ Je garderai une trace de ton passage en 2025.
 
 Même si c'était pour du jeu, des tests, ou du sérieux que sais-je, j'ai aimé ce regard et ce sourire, se sentir vraiment choisis, c'est agréable.
 
-Et c'est avec ce sentiment que j'avance depuis.
+Et c'est avec ce sentiment que j'avance depuis. Un sentiment qui donne envie de trouver, de s'investir, de construire.
 
 Ca met la barre haute sur mes exigences, de l'autre comme de moi même.
-
-Tu m'as dis que j'étais une bonne personne. J'ai compris qu'il faut plus que ça et je continue d'y travailler.
 
 Merci pour cette rencontre
 
