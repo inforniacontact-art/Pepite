@@ -9,13 +9,21 @@ const PAGES = {
     date: "25 janvier 2026",
     text: `Une nouvelle année commence.
 
-J’ai eu une pensée pour toi ce jour. J’espère que la relation que tu as choisie te va et te fait du bien.
+J’ai eu une pensée pour toi ce jour. J’espère que la relation que tu as choisie te va.
 
-Je garderai une trace précieuse de ton passage en 2025.
+Je garderai une trace précieuse de ton passage en 2025. C'était la première fois que je me sentais vraiment choisis.
+
+Comme quoi il n'est jamais trop tard. Même si c'était pour du jeu, des tests, ou du sérieux que sais-je, j'ai aimé ce regard et ce sourire.
+
+Du coup je ne signerais pas pour moins que ça, et j'exige de moi même de regarder celle que j'aime de la même manière.
 
 Tu m'as dis que j'étais une bonne personne. J'ai compris qu'il faut plus que ça.
 
-De la solidité, de la constance, une vision, que tu m'as aidé à trouver.
+Vouloir bien faire et mettre de la pression relationnelle sur l'autre est une erreur à éviter.
+
+Prendre le temps, laisser respirer, de l'espace, être ce qui doit être, peu importe la durée, l'intensité.
+
+Qu'il faut de la solidité, de la constance, une vision, que tu m'as aidé à trouver.
 
 Je te souhaite une année brillante, sereine et à la hauteur de ce que tu souhaites.
 
