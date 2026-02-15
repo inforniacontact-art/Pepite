@@ -6,7 +6,7 @@
 const PAGES = {
   annee2026: {
     title: "2026",
-    date: "25 janvier 2026",
+    date: "15 Février 2026",
     text: `Une nouvelle année commence.
 
 J’ai eu une pensée pour toi ce jour. J’espère que la relation que tu as choisie te va.
