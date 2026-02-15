@@ -27,9 +27,7 @@ Qu'il faut de la solidité, de la constance, une vision, que tu m'as aidé à tr
 
 Merci pour cette rencontre
 
-Je te souhaite une année brillante, sereine et à la hauteur de ce que tu souhaites.
-
-Bonne année et bon anniversaire en retard.`,
+Je te souhaite une année sereine et à la hauteur de ce que tu souhaites.`,
     audio: {
       src: "https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/assets/2026.mp3",
       vol: 0.6,
