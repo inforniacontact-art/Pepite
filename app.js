@@ -9,23 +9,18 @@ const PAGES = {
     date: "25 janvier 2026",
     text: `Une nouvelle année commence.
 
-J’ai eu une pensée pour toi et j’espère sincèrement que la relation que tu as choisie t’apporte ce que tu cherchais.
+J’ai eu une pensée pour toi ce jour. J’espère que la relation que tu as choisie te va et te fait du bien.
 
-De mon côté, j’avance.
-Je continue de construire, d’apprendre, d’assumer mes choix.
-Le mouvement n’est pas toujours confortable, mais il est nécessaire.
+Je garderai une trace précieuse de ton passage en 2025.
 
-Je garde de 2025 le souvenir d’une rencontre marquante.
-Tu as été une lumière à un moment précis de ma vie, et je respecte ce que cela a représenté.
+Tu m'as dis que j'étais une bonne personne. J'ai compris qu'il faut plus que ça.
 
-Tu m’as dit un jour que j’étais une bonne personne.
-Aujourd’hui, je comprends que cela implique aussi d’être solide, aligné, constant — même quand personne ne regarde.
-C’est ce vers quoi je tends.
+De la solidité, de la constance, une vision, que tu m'as aidé à trouver.
 
-Je te souhaite une année claire, apaisée et cohérente avec qui tu es.
+Je te souhaite une année brillante, sereine et à la hauteur de ce que tu souhaites.
 
 Bonne année.
-Et bon anniversaire.`,
+Et bon anniversaire en retard.`,
     audio: {
       src: "https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/assets/2026.mp3",
       vol: 0.6,
