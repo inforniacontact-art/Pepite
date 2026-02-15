@@ -11,19 +11,13 @@ const PAGES = {
 
 J’ai eu une pensée pour toi ce jour. J’espère que la relation que tu as choisie te va.
 
-Je garderai une trace précieuse de ton passage en 2025. C'était la première fois que je me sentais vraiment choisis.
+Je garderai une trace de ton passage en 2025.
 
-Comme quoi il n'est jamais trop tard. Même si c'était pour du jeu, des tests, ou du sérieux que sais-je, j'ai aimé ce regard et ce sourire.
+Même si c'était pour du jeu, des tests, ou du sérieux que sais-je, j'ai aimé ce regard et ce sourire, se sentir vraiment choisis, c'est agréable.
 
-Du coup je ne signerais pas pour moins que ça, et j'exige de moi même de regarder celle que j'aime de la même manière.
+Du coup t'as mis la barre haute sur mes exigences, et j'exige autant de moi même, de regarder celle que j'aime de la même manière.
 
 Tu m'as dis que j'étais une bonne personne. J'ai compris qu'il faut plus que ça.
-
-Vouloir bien faire et mettre de la pression relationnelle sur l'autre est une erreur à éviter.
-
-Prendre le temps, laisser respirer, de l'espace, être ce qui doit être, peu importe la durée, l'intensité.
-
-Qu'il faut de la solidité, de la constance, une vision, que tu m'as aidé à trouver.
 
 Merci pour cette rencontre
 
