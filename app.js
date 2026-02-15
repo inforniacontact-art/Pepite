@@ -17,11 +17,11 @@ Même si c'était pour du jeu, des tests, ou du sérieux que sais-je, j'ai aimé
 
 Du coup t'as mis la barre haute sur mes exigences, et j'exige autant de moi même, de regarder celle que j'aime de la même manière que tu l'as fait.
 
-Tu m'as dis que j'étais une bonne personne. J'ai compris qu'il faut plus que ça et j'y travaille.
+Tu m'as dis que j'étais une bonne personne. J'ai compris qu'il faut plus que ça et je continue d'y travailler.
 
 Merci pour cette rencontre
 
-Je te souhaite une année sereine et à la hauteur de ce que tu souhaites.`,
+Je te souhaite une année à la hauteur de ce que tu souhaites.`,
     audio: {
       src: "https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/assets/2026.mp3",
       vol: 0.6,
