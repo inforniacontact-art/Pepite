@@ -11,7 +11,7 @@ const PAGES = {
 
 Je t'ai écouté.
 
-Huit mois plus tard, je comprends le sens de cette phrase.
+Huit mois de travail plus tard, je comprends le sens de cette phrase.
 `,
     audio: { src: "", vol: 0, title: "", link: "#" },
     effect: "rays",
