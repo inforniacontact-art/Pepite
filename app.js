@@ -4,6 +4,81 @@
 // ============================================================
 
 const PAGES = {
+  aube: {
+    title: "Depuis",
+    date: "5 avril 2026",
+    text: `Tu m'avais dit que je ne sortais pas assez.
+
+Je t'ai écouté.
+
+Huit mois plus tard, je comprends le sens de cette phrase.
+`,
+    audio: { src: "", vol: 0, title: "", link: "#" },
+    effect: "rays",
+    speed: 48,
+    theme: {
+      bg: "#0d1b2a, #1e0e04, #7a3a00",
+      text: "#f5e8d0",
+      accent: "#f5a623",
+      card: "rgba(10, 5, 0, 0.6)",
+    },
+    css: `
+      body {
+        background: radial-gradient(ellipse at 50% 110%, #f5a623 0%, #7a3a00 18%, #1e0e04 48%, #0d1b2a 100%) !important;
+        background-attachment: fixed !important;
+      }
+
+      #title {
+        font-family: system-ui, -apple-system, sans-serif;
+        font-weight: 300;
+        letter-spacing: 0.04em;
+        font-size: clamp(3rem, 8vw, 5.5rem);
+        color: #f5a623;
+        text-shadow: 0 0 60px rgba(245, 166, 35, 0.45), 0 0 120px rgba(245, 166, 35, 0.15);
+        margin-bottom: 0.4rem;
+      }
+
+      .date {
+        font-family: system-ui, sans-serif;
+        color: rgba(245, 232, 208, 0.45);
+        opacity: 1;
+      }
+
+      .poem-container {
+        background: rgba(10, 5, 0, 0.55);
+        border-color: rgba(245, 166, 35, 0.07);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65), 0 0 80px rgba(245, 166, 35, 0.04);
+        backdrop-filter: blur(18px);
+      }
+
+      .poem {
+        font-family: Georgia, serif;
+        font-size: clamp(1rem, 2.2vw, 1.2rem);
+        line-height: 1.95;
+        letter-spacing: 0.015em;
+        color: #f5e8d0;
+      }
+
+      .btn {
+        background: rgba(245, 166, 35, 0.05);
+        border-color: rgba(245, 166, 35, 0.14);
+        color: #f5e8d0;
+      }
+
+      .btn:hover {
+        background: rgba(245, 166, 35, 0.1);
+        border-color: rgba(245, 166, 35, 0.25);
+        color: #f5a623;
+      }
+
+      .navbar {
+        background: rgba(10, 15, 22, 0.88);
+        border-bottom-color: rgba(245, 166, 35, 0.07);
+      }
+
+      .cursor { background: #f5a623; }
+    `,
+  },
   annee2026: {
     title: "2026",
     date: "15 Février 2026",
@@ -408,6 +483,7 @@ class App {
     this.playing = false;
     this.timeout = null;
     this.intervals = [];
+    this.container = document.querySelector(".container");
 
     this.cursor = document.createElement("span");
     this.cursor.className = "cursor";
@@ -425,6 +501,7 @@ class App {
       const a = document.createElement("a");
       a.href = `#${id}`;
       a.className = "nav-link";
+      a.dataset.page = id;
       a.textContent = PAGES[id].title;
       li.appendChild(a);
       this.$.nav.appendChild(li);
@@ -449,6 +526,18 @@ class App {
 
     this.cleanup();
     this.page = page;
+
+    // Nav active state
+    document.querySelectorAll(".nav-link").forEach((a) => {
+      a.classList.toggle("active", a.dataset.page === id);
+    });
+
+    // Page transition
+    if (this.container) {
+      this.container.style.animation = "none";
+      void this.container.offsetWidth;
+      this.container.style.animation = "";
+    }
 
     // UI
     this.$.title.textContent = page.title;
@@ -622,7 +711,22 @@ class App {
     this.intervals.forEach(clearInterval);
     this.intervals = [];
 
-    if (type === "particles") {
+    if (type === "rays") {
+      const count = 14;
+      for (let i = 0; i < count; i++) {
+        const r = document.createElement("div");
+        r.className = "sun-ray";
+        const angle = -65 + (130 / (count - 1)) * i;
+        const w = 1 + Math.random() * 2;
+        r.style.width = `${w}px`;
+        r.style.marginLeft = `${-w / 2}px`;
+        r.style.height = `${55 + Math.random() * 35}vh`;
+        r.style.transform = `rotate(${angle}deg)`;
+        r.style.animationDelay = `${(i * 0.55).toFixed(1)}s`;
+        r.style.animationDuration = `${6 + Math.random() * 5}s`;
+        this.$.particles.appendChild(r);
+      }
+    } else if (type === "particles") {
       for (let i = 0; i < 15; i++) {
         const p = document.createElement("div");
         p.className = "particle";
