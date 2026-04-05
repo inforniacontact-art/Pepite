@@ -401,19 +401,47 @@ body {
 }
 
 /* Responsive */
+
+/* Nav — scroll horizontal sur petits écrans */
+@media (max-width: 640px) {
+    .navbar ul {
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 0.25rem;
+        padding: 0.6rem 0.75rem;
+    }
+
+    .navbar ul::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.65rem;
+        white-space: nowrap;
+    }
+}
+
+/* Tablettes */
 @media (max-width: 768px) {
+    body {
+        background-attachment: scroll; /* fix iOS Safari */
+    }
+
     .container {
-        padding: 1rem 0.5rem;
+        padding: 1.25rem 0.75rem;
     }
 
     .poem-container {
-        width: min(1200px, 96vw);
-        padding: clamp(1rem, 3vw, 1.8rem);
+        width: 100%;
+        padding: 1.25rem;
     }
 
     .poem {
-        font-size: clamp(0.9rem, 3vw, 1.3rem);
-        line-height: 1.4;
+        font-size: clamp(0.95rem, 2.8vw, 1.2rem);
+        line-height: 1.6;
     }
 
     .audio-widget {
@@ -422,43 +450,69 @@ body {
     }
 
     .soundcloud {
-        width: 260px;
+        width: min(260px, calc(100vw - 1rem));
         padding: 0.6rem;
     }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
     .container {
-        padding: 0.8rem 0.15rem;
+        padding: 0.875rem 0.75rem;
     }
 
     .poem-container {
-        width: min(1100px, 98.5vw);
-        padding: 1rem 0.5rem;
+        width: 100%;
+        padding: 1rem 0.875rem;
     }
 
     .poem {
-        font-size: clamp(0.7rem, 3vw, 1.2rem);
-        line-height: 1.3;
+        font-size: clamp(0.95rem, 4vw, 1.1rem);
+        line-height: 1.55;
     }
 
     #title {
-        font-size: clamp(2rem, 6vw, 2.8rem);
-        margin: 0 0 1rem 0;
+        font-size: clamp(2rem, 8vw, 2.8rem);
+        margin-bottom: 0.5rem;
     }
 
     .btn {
-        padding: 0.5rem 0.7rem;
+        padding: 0.6rem 0.875rem;
         font-size: 0.8rem;
+        min-height: 44px;
         min-width: 60px;
     }
 
     .soundcloud {
-        width: 240px;
-        padding: 0.5rem;
+        display: none; /* trop large sur petit écran, player seul suffit */
+    }
+
+    .player {
+        padding: 0.6rem 0.875rem;
+    }
+
+    #audio-toggle {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.1rem;
     }
 
     #volume {
-        width: 40px;
+        width: 50px;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .writing-line,
+    .cursor,
+    .particle,
+    .sun-ray,
+    .blood-drop {
+        animation: none;
+    }
+
+    .container {
+        animation: none;
     }
 }

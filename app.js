@@ -29,7 +29,6 @@ Huit mois de travail plus tard, je comprends le sens de cette phrase.`,
     css: `
       body {
         background: radial-gradient(ellipse at 50% 110%, #f5a623 0%, #7a3a00 18%, #1e0e04 48%, #0d1b2a 100%) !important;
-        background-attachment: fixed !important;
       }
 
       #title {
@@ -103,7 +102,7 @@ Merci pour cette rencontre
 Je te souhaite une année à la hauteur de tes ambitions.`,
     audio: {
       src: "https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/assets/2026.mp3",
-      vol: 0.6,
+      vol: 0.4,
       title: "2026",
       link: "https://soundcloud.com/mickawolf/first-of-2026",
     },
@@ -327,7 +326,7 @@ Je poursuis mon chemin d'un sourire affiché
 Et m'abreuve sans fin du cadavre d'antan`,
     audio: {
       src: "https://github.com/inforniacontact-art/Pepite/raw/main/assets/Morceau%20sans%20titre.mp3",
-      vol: 0.6,
+      vol: 0.4,
       title: "Musique d'ambiance",
       link: "#",
     },
@@ -443,9 +442,9 @@ Même si je sais qu'on ne se reverra.
 Je t'aime. Adieu.`,
     audio: {
       src: "https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/assets/Travel%20Island%20v2.mp3",
-      vol: 0.15,
-      title: "Puck Road",
-      link: "https://soundcloud.com/mickawolf/puck-road",
+      vol: 0.5,
+      title: "Travel Island",
+      link: "https://soundcloud.com/mickawolf/travel-island",
     },
     effect: "particles",
     speed: 50,
@@ -585,7 +584,12 @@ class App {
     this.$.resume.hidden = true;
 
     // Autoplay audio on page entry
-    if (page.audio.src) this.startAudio();
+    if (page.audio.src) {
+      const gen = this.pageGen;
+      this.$.audio.addEventListener("canplay", () => {
+        if (this.pageGen === gen) this.startAudio();
+      }, { once: true });
+    }
   }
 
   start() {
