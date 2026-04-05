@@ -84,11 +84,13 @@ Huit mois de travail plus tard, je comprends le sens de cette phrase.
     date: "15 Février 2026",
     text: `Une nouvelle année commence.
 
-J’ai eu une pensée pour toi ce jour. J’espère que la relation que tu as choisie te va.
+J’espère que la relation que tu as choisie te va.
 
-Je garderai une trace de ton passage en 2025. Ce regard et ce sourire, c'était agréable.
+2025 conservera ta trace dans ma mémoire.
+Ce regard et ce sourire, être choisi, c'était agréable.
 
-Et c'est avec ce sentiment que j'avance depuis. Un sentiment qui donne envie de trouver, de s'investir, de construire.
+Et c'est avec ce sentiment que j'avance depuis.
+Un sentiment qui donne envie de trouver, de s'investir, de construire.
 
 Cela a élevé mes exigences, envers l'autre comme de moi même.
 
