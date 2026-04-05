@@ -14,7 +14,7 @@ Je t'ai écouté.
 Huit mois de travail plus tard, je comprends le sens de cette phrase.`,
     audio: {
       src: "https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/assets/Chill%20vibes.mp3",
-      vol: 0.6,
+      vol: 0.4,
       title: "Chill Vibes",
       link: "https://soundcloud.com/mickawolf/chill-vibes",
     },
