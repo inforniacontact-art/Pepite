@@ -12,7 +12,12 @@ const PAGES = {
 Je t'ai écouté.
 
 Huit mois de travail plus tard, je comprends le sens de cette phrase.`,
-    audio: { src: "", vol: 0, title: "", link: "#" },
+    audio: {
+      src: "https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/assets/Chill%20vibes.mp3",
+      vol: 0.6,
+      title: "Chill Vibes",
+      link: "https://soundcloud.com/mickawolf/chill-vibes",
+    },
     effect: "rays",
     speed: 48,
     theme: {
