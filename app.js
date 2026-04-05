@@ -583,13 +583,16 @@ class App {
     this.$.play.hidden = true;
     this.$.pause.hidden = true;
     this.$.resume.hidden = true;
+
+    // Autoplay audio on page entry
+    if (page.audio.src) this.startAudio();
   }
 
   start() {
     this.$.start.hidden = true;
     this.$.pause.hidden = false;
     this.play();
-    this.startAudio();
+    if (this.$.audio.paused) this.startAudio();
   }
 
   play() {
