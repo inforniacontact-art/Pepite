@@ -485,6 +485,7 @@ class App {
     this.timeout = null;
     this.intervals = [];
     this.container = document.querySelector(".container");
+    this.pageGen = 0;
 
     this.cursor = document.createElement("span");
     this.cursor.className = "cursor";
@@ -670,19 +671,24 @@ class App {
   }
 
   async startAudio() {
+    const gen = this.pageGen;
     try {
       this.$.audio.muted = true;
       await this.$.audio.play();
       setTimeout(() => {
+        if (this.pageGen !== gen) return;
         this.$.audio.muted = false;
         this.updateAudio(true, "En lecture");
       }, 100);
     } catch {
+      if (this.pageGen !== gen) return;
       this.$.audio.muted = false;
       try {
         await this.$.audio.play();
+        if (this.pageGen !== gen) return;
         this.updateAudio(true, "En lecture");
       } catch {
+        if (this.pageGen !== gen) return;
         this.updateAudio(false, "Activer");
       }
     }
@@ -756,6 +762,7 @@ class App {
   }
 
   cleanup() {
+    this.pageGen++;
     this.playing = false;
     clearTimeout(this.timeout);
     this.intervals.forEach(clearInterval);
