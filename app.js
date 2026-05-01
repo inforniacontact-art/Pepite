@@ -1,6 +1,7 @@
 // ============================================================
 // CONFIGURATION DES PAGES
 // Pour ajouter une page : dupliquer un bloc et modifier
+// Brain vault : Mika Brain/05-Écriture/ — writing-style.md pour le style
 // ============================================================
 
 const PAGES = {
