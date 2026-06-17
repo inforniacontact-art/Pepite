@@ -7,7 +7,7 @@
 const PAGES = {
   aube: {
     title: "Depuis",
-    date: "17 juin 2026",
+    date: "5 avril 2026",
     text: `Tu m'avais dit que je ne sortais pas assez.
 
 C'était vrai.
