@@ -12,9 +12,7 @@ const PAGES = {
 
 C'était vrai.
 
-Je suis sorti.
-
-Je ne rentre plus pareil.`,
+Je suis sorti.`,
     audio: {
       src: "https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/assets/Chill%20vibes.mp3",
       vol: 0.4,
