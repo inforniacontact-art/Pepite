@@ -185,7 +185,7 @@ body {
     border-color: rgba(0, 0, 0, 0.2);
 }
 
-/* Writing animation */
+/* Writing animation — typewriter */
 .writing-line {
     display: inline;
     opacity: 0;
@@ -198,6 +198,24 @@ body {
         transform: translateY(5px);
     }
 
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Instant mode — fade-in posé, ligne par ligne */
+.instant-line {
+    display: inline;
+    opacity: 0;
+    animation: instantFade 0.6s ease forwards;
+}
+
+@keyframes instantFade {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
     to {
         opacity: 1;
         transform: translateY(0);
@@ -507,11 +525,16 @@ body {
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
     .writing-line,
+    .instant-line,
     .cursor,
     .particle,
     .sun-ray,
     .blood-drop {
         animation: none;
+    }
+
+    .instant-line {
+        opacity: 1;
     }
 
     .container {

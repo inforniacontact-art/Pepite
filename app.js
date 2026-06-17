@@ -7,12 +7,14 @@
 const PAGES = {
   aube: {
     title: "Depuis",
-    date: "5 avril 2026",
+    date: "17 juin 2026",
     text: `Tu m'avais dit que je ne sortais pas assez.
 
-Je t'ai écouté.
+C'était vrai.
 
-Huit mois de travail plus tard, je comprends le sens de cette phrase.`,
+Je suis sorti.
+
+Je ne rentre plus pareil.`,
     audio: {
       src: "https://github.com/inforniacontact-art/Pepite/raw/refs/heads/main/assets/Chill%20vibes.mp3",
       vol: 0.4,
@@ -20,7 +22,7 @@ Huit mois de travail plus tard, je comprends le sens de cette phrase.`,
       link: "https://soundcloud.com/mickawolf/chill-vibes",
     },
     effect: "rays",
-    speed: 48,
+    instant: true,
     theme: {
       bg: "#0d1b2a, #1e0e04, #7a3a00",
       text: "#f5e8d0",
@@ -86,6 +88,7 @@ Huit mois de travail plus tard, je comprends le sens de cette phrase.`,
   annee2026: {
     title: "2026",
     date: "15 Février 2026",
+    instant: true,
     text: `Une nouvelle année commence.
 
 J’espère que la relation que tu as choisie te va.
@@ -578,11 +581,18 @@ class App {
     this.applyEffect(page.effect);
 
     // Reset
-    this.$.poem.appendChild(this.cursor);
-    this.$.start.hidden = false;
-    this.$.play.hidden = true;
-    this.$.pause.hidden = true;
-    this.$.resume.hidden = true;
+    const controls = document.querySelector(".controls");
+    if (page.instant) {
+      if (controls) controls.hidden = true;
+      this.showInstant();
+    } else {
+      if (controls) controls.hidden = false;
+      this.$.poem.appendChild(this.cursor);
+      this.$.start.hidden = false;
+      this.$.play.hidden = true;
+      this.$.pause.hidden = true;
+      this.$.resume.hidden = true;
+    }
 
     // Autoplay audio on page entry
     if (page.audio.src) {
@@ -774,6 +784,20 @@ class App {
     }
   }
 
+  showInstant() {
+    this.$.poem.innerHTML = "";
+    const lines = this.page.text.split("\n");
+    lines.forEach((line, i) => {
+      if (i > 0) this.$.poem.appendChild(document.createTextNode("\n"));
+      const s = document.createElement("span");
+      s.textContent = line;
+      s.className = "instant-line";
+      s.style.animationDelay = `${i * 0.15}s`;
+      this.$.poem.appendChild(s);
+    });
+    this.idx = this.page.text.length;
+  }
+
   cleanup() {
     this.pageGen++;
     this.playing = false;
@@ -785,6 +809,8 @@ class App {
     this.$.particles.innerHTML = "";
     this.$.audio.pause();
     this.$.audio.currentTime = 0;
+    const controls = document.querySelector(".controls");
+    if (controls) controls.hidden = false;
   }
 }
 
