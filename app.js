@@ -22,65 +22,64 @@ Je suis sorti.`,
     effect: "rays",
     instant: true,
     theme: {
-      bg: "#0d1b2a, #1e0e04, #7a3a00",
-      text: "#f5e8d0",
-      accent: "#f5a623",
-      card: "rgba(10, 5, 0, 0.6)",
+      bg: "#1a1410, #2a2018, #3a3020",
+      text: "#f5f1ed",
+      accent: "#c9956e",
+      card: "rgba(26, 20, 16, 0.8)",
     },
     css: `
       body {
-        background: radial-gradient(ellipse at 50% 110%, #f5a623 0%, #7a3a00 18%, #1e0e04 48%, #0d1b2a 100%) !important;
+        background: linear-gradient(135deg, #1a1410 0%, #2a2018 50%, #3a3020 100%) !important;
       }
 
       #title {
-        font-family: system-ui, -apple-system, sans-serif;
-        font-weight: 300;
-        letter-spacing: 0.04em;
-        font-size: clamp(3rem, 8vw, 5.5rem);
-        color: #f5a623;
-        text-shadow: 0 0 60px rgba(245, 166, 35, 0.45), 0 0 120px rgba(245, 166, 35, 0.15);
-        margin-bottom: 0.4rem;
+        font-family: "Playfair Display", serif;
+        font-weight: 400;
+        letter-spacing: 0.06em;
+        font-size: clamp(2.5rem, 7vw, 4rem);
+        color: #c9956e;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        margin-bottom: 0.6rem;
       }
 
       .date {
-        font-family: system-ui, sans-serif;
-        color: rgba(245, 232, 208, 0.45);
+        color: rgba(245, 241, 237, 0.55);
         opacity: 1;
       }
 
       .poem-container {
-        background: rgba(10, 5, 0, 0.55);
-        border-color: rgba(245, 166, 35, 0.07);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65), 0 0 80px rgba(245, 166, 35, 0.04);
-        backdrop-filter: blur(18px);
+        background: rgba(26, 20, 16, 0.7);
+        border-color: rgba(201, 149, 110, 0.1);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(6px);
       }
 
       .poem {
-        font-family: Georgia, serif;
-        font-size: clamp(1rem, 2.2vw, 1.2rem);
-        line-height: 1.95;
-        letter-spacing: 0.015em;
-        color: #f5e8d0;
+        font-family: "Lora", serif;
+        font-size: clamp(1rem, 2.1vw, 1.25rem);
+        line-height: 1.9;
+        letter-spacing: 0.01em;
+        color: #f5f1ed;
       }
 
       .btn {
-        background: rgba(245, 166, 35, 0.05);
-        border-color: rgba(245, 166, 35, 0.14);
-        color: #f5e8d0;
+        background: transparent;
+        border-color: rgba(201, 149, 110, 0.25);
+        color: #f5f1ed;
       }
 
       .btn:hover {
-        background: rgba(245, 166, 35, 0.1);
-        border-color: rgba(245, 166, 35, 0.25);
-        color: #f5a623;
+        background: #c9956e;
+        border-color: #c9956e;
+        color: #1a1410;
       }
 
       .navbar {
-        background: rgba(10, 15, 22, 0.88);
-        border-bottom-color: rgba(245, 166, 35, 0.07);
+        background: rgba(26, 20, 16, 0.9);
+        border-bottom-color: rgba(201, 149, 110, 0.1);
       }
 
-      .cursor { background: #f5a623; }
+      .cursor { background: #c9956e; }
     `,
   },
   annee2026: {
@@ -89,7 +88,7 @@ Je suis sorti.`,
     instant: true,
     text: `Une nouvelle année commence.
 
-J’espère que la relation que tu as choisie te va.
+J'espère que la relation que tu as choisie te va.
 
 2025 conservera ta trace dans ma mémoire.
 Ce regard et ce sourire, être choisi, c'était agréable.
@@ -111,83 +110,73 @@ Je te souhaite une année à la hauteur de tes ambitions.`,
     effect: "none",
     speed: 42,
     theme: {
-      bg: "#0a0e14, #0f1419, #141b24",
+      bg: "#0f1419, #151d26, #1a242f",
       text: "#e6edf3",
-      accent: "#58a6ff",
-      card: "rgba(22,27,34,0.95)",
+      accent: "#4a90e2",
+      card: "rgba(15, 20, 25, 0.9)",
     },
     css: `
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
-        letter-spacing: -0.01em;
+        font-family: "Lora", serif;
+        letter-spacing: 0em;
       }
       
       #title {
-        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
-        font-weight: 500;
-        font-size: clamp(2.8rem, 6vw, 4rem);
-        letter-spacing: -0.02em;
-        margin-bottom: 0.5rem;
+        font-family: "Playfair Display", serif;
+        font-weight: 400;
+        font-size: clamp(2.4rem, 6vw, 3.8rem);
+        letter-spacing: 0.06em;
+        margin-bottom: 0.8rem;
       }
       
       .date {
-        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+        font-family: "Lora", serif;
         color: #8b949e;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         font-weight: 400;
         opacity: 1;
-        margin-bottom: 3rem;
+        margin-bottom: 2.5rem;
       }
       
       .poem-container {
-        border: 1px solid rgba(88, 166, 255, 0.15);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(88, 166, 255, 0.08);
+        border: 1px solid rgba(74, 144, 226, 0.12);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(74, 144, 226, 0.06);
         position: relative;
       }
       
-      .poem-container::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 48px;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, #58a6ff, transparent);
-        opacity: 0.6;
-      }
-      
       .poem {
-        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
-        font-size: clamp(1rem, 2.2vw, 1.15rem);
-        line-height: 1.7;
+        font-family: "Lora", serif;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        line-height: 1.85;
         font-weight: 400;
-        letter-spacing: -0.01em;
+        letter-spacing: 0em;
         color: #e6edf3;
       }
       
       .btn {
-        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
-        background: rgba(88, 166, 255, 0.08);
-        border: 1px solid rgba(88, 166, 255, 0.2);
-        font-weight: 500;
-        letter-spacing: -0.01em;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        font-family: "Lora", serif;
+        background: transparent;
+        border: 1px solid rgba(74, 144, 226, 0.2);
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        transition: all 0.3s;
       }
       
       .btn:hover {
-        background: rgba(88, 166, 255, 0.12);
-        border-color: rgba(88, 166, 255, 0.3);
-        transform: translateY(-1px);
+        background: #4a90e2;
+        border-color: #4a90e2;
+        color: white;
+        transform: translateY(-2px);
       }
       
       .cursor {
-        background: #58a6ff;
-        opacity: 0.8;
+        background: #4a90e2;
+        opacity: 0.9;
       }
       
       .writing-line {
-        animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        animation: fadeIn 0.2s ease-in forwards;
       }
       
       @keyframes fadeIn {
@@ -202,14 +191,14 @@ Je te souhaite une année à la hauteur de tes ambitions.`,
       }
       
       .navbar {
-        background: rgba(10, 14, 20, 0.8);
-        border-bottom: 1px solid rgba(88, 166, 255, 0.1);
+        background: rgba(15, 20, 25, 0.9);
+        border-bottom: 1px solid rgba(74, 144, 226, 0.08);
       }
       
       .nav-link {
-        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+        font-family: "Lora", serif;
         font-weight: 500;
-        letter-spacing: -0.01em;
+        letter-spacing: 0.03em;
       }
       
       @media (prefers-reduced-motion: reduce) {
@@ -249,7 +238,7 @@ J'ai peur que tu deviennes cette fille que je ne connais que trop bien
 Ces filles dont je n'ai jamais été attiré, que je n'ai jamais voulu avoir ne serait-ce qu'un seul instant dans ma vie
 Je me suis aperçu que je n'ai cherché et touché que des filles qui cherchaient une relation
 Comme n'importe quel homme j'ai fantasmé sur les coups d'un soir, vu que c'est la norme de la société d'avoir beaucoup d'expérience avec plein de filles
-Et pourtant je n'ai jamais réussi à coucher totalement avec, des embrassades, des préliminaires tout au plus, mais impossible de coucher avec une femme que je n'aime pas, aussi belle soit-elle, aussi forte soit la luxure, même bourré
+Et pourtant je n'ai jamais réussi à coucher totalement avec, des embrassades, des préliminaires tout au plus, mais impossible de coucher avec une femme que je n'aime pas, aussi belle soit-elle[...]
 
 Tu as raison, je suis dragué au boulot, pas que d'ailleurs, mais je ne m'en rendais pas compte
 Après ce sont des femmes fiancées, mariées, en couple, des femmes intègre, droite et sérieuse comme toi hein ?
@@ -298,10 +287,10 @@ Peace`,
     effect: "none",
     speed: 50,
     theme: {
-      bg: "#f5f5f5, #e8e8e8",
-      text: "#2c2c2c",
-      accent: "#5a5a5a",
-      card: "rgba(255,255,255,0.95)",
+      bg: "#f8f7f5, #f0eeeb, #e8e5e0",
+      text: "#3a3a3a",
+      accent: "#6b5b49",
+      card: "rgba(255,255,255,0.97)",
     },
   },
   bourgeon: {
@@ -332,24 +321,31 @@ Et m'abreuve sans fin du cadavre d'antan`,
       title: "Musique d'ambiance",
       link: "#",
     },
-    effect: "blood",
+    effect: "none",
     speed: 60,
     theme: {
-      bg: "#1a0808, #2a1010, #3a1515",
+      bg: "#2a1a17, #3a2a27, #4a3a37",
       text: "#e8d4d4",
-      accent: "#b83333",
-      card: "rgba(42,16,16,0.75)",
+      accent: "#a85656",
+      card: "rgba(42, 26, 23, 0.85)",
     },
     css: `
-      .title { animation: glow 4s ease-in-out infinite alternate; }
-      @keyframes glow {
-        0% { text-shadow: 0 0 8px #8a2424, 0 2px 12px #660000; }
-        100% { text-shadow: 0 0 12px #b83333, 0 2px 18px #8a2424, 0 0 24px #8b0000; }
+      #title {
+        font-family: "Playfair Display", serif;
+        text-shadow: 0 2px 8px rgba(168, 86, 86, 0.2);
       }
-      .writing-line { animation: fadeIn 0.15s ease-in forwards, pulse 3s ease-in-out infinite alternate; }
-      @keyframes pulse {
-        0% { text-shadow: 0 0 2px #660000; }
-        100% { text-shadow: 0 0 6px #8b0000, 0 0 12px #660000; }
+      
+      .poem {
+        color: #e8d4d4;
+      }
+      
+      .btn {
+        border-color: rgba(168, 86, 86, 0.2);
+      }
+      
+      .btn:hover {
+        background: #a85656;
+        color: white;
       }
     `,
   },
@@ -384,10 +380,10 @@ Pépite, sera une mère extraordinaire.`,
     effect: "particles",
     speed: 50,
     theme: {
-      bg: "#ffe6f0, #ffd9e8, #ffb3cc",
-      text: "#4d0033",
-      accent: "#ff66a3",
-      card: "rgba(255,230,240,0.85)",
+      bg: "#f5e6ed, #f0d9e8, #ead9e8",
+      text: "#5a2d5a",
+      accent: "#d9669f",
+      card: "rgba(245, 230, 237, 0.92)",
     },
   },
   souvenir: {
@@ -451,10 +447,10 @@ Je t'aime. Adieu.`,
     effect: "particles",
     speed: 50,
     theme: {
-      bg: "#e6f2ff, #d9ecff, #b3d9ff",
-      text: "#003366",
-      accent: "#3399ff",
-      card: "rgba(230,242,255,0.85)",
+      bg: "#e6f2ff, #d9ecff, #cce6ff",
+      text: "#1a4d80",
+      accent: "#2d7ac4",
+      card: "rgba(230, 242, 255, 0.92)",
     },
   },
 };
@@ -755,7 +751,7 @@ class App {
         this.$.particles.appendChild(r);
       }
     } else if (type === "particles") {
-      for (let i = 0; i < 15; i++) {
+      for (let i = 0; i < 8; i++) {
         const p = document.createElement("div");
         p.className = "particle";
         p.style.left = `${Math.random() * 100}%`;
@@ -763,22 +759,6 @@ class App {
         p.style.animationDuration = `${8 + Math.random() * 8}s`;
         this.$.particles.appendChild(p);
       }
-    } else if (type === "blood") {
-      const drop = () => {
-        const d = document.createElement("div");
-        d.className = "blood-drop";
-        const size = 4 + Math.random() * 8;
-        d.style.width = d.style.height = `${size}px`;
-        d.style.left = `${Math.random() * 100}%`;
-        const dur = 3 + Math.random() * 4;
-        d.style.animationDuration = `${dur}s`;
-        this.$.particles.appendChild(d);
-        setTimeout(() => d.remove(), dur * 1000 + 2000);
-      };
-      for (let i = 0; i < 8; i++) setTimeout(drop, i * 500);
-      this.intervals.push(
-        setInterval(() => Math.random() < 0.7 && drop(), 2000)
-      );
     }
   }
 
